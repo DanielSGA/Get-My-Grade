@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Get My Grade.xcodeproj">
+      location = "self:GetMyGrade.xcodeproj">
    </FileRef>
 </Workspace>
