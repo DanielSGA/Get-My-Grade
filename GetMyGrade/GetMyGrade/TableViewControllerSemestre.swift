@@ -8,8 +8,13 @@
 
 import UIKit
 
-class TableViewControllerSemestre: UITableViewController {
-
+class TableViewControllerSemestre: UITableViewController,protocoloAgregaSemestre {
+    func agregaSemestre(sem: Semestre) {
+        listaSemestres.append(sem)
+        tableView.reloadData()
+    }
+    
+    var listaSemestres = [Semestre]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,14 +34,14 @@ class TableViewControllerSemestre: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return listaSemestres.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        // Configure the cell...
+        
+        cell.textLabel?.text=listaSemestres[indexPath.row].nombre
         
 
         return cell
@@ -78,14 +83,23 @@ class TableViewControllerSemestre: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier=="segue_agrega_semestre")
+        {
+            let viewAgregar = segue.destination as! ViewControllerAgregaSemestre
+            viewAgregar.delegado = self
+        }
+        else
+        {
+            let vistaMaterias = segue.destination as! TableViewControllerMateria
+            let indexPath = tableView.indexPathForSelectedRow!
+            vistaMaterias.idSemestre = listaSemestres[indexPath.row].id
+        }
     }
-    */
+    
 
 }

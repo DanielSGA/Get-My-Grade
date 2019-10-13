@@ -7,16 +7,29 @@
 //
 
 import UIKit
-
+protocol protocoloAgregaSemestre{
+    func agregaSemestre(sem:Semestre)->Void
+}
 class ViewControllerAgregaSemestre: UIViewController {
 
+    @IBOutlet weak var tfNombre: UITextField!
+    var delegado:protocoloAgregaSemestre!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func guardar(_ sender: UIButton) {
+        if let nom = tfNombre.text
+        {
+            let unSem = Semestre(nombre:nom, id: 1)
+            delegado.agregaSemestre(sem: unSem)
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    
+    
     /*
     // MARK: - Navigation
 

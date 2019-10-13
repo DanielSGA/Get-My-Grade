@@ -9,7 +9,7 @@
 import UIKit
 
 class TableViewControllerMateria: UITableViewController {
-
+    var idSemestre:Int!
     override func viewDidLoad() {
         super.viewDidLoad()
 

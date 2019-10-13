@@ -20,6 +20,10 @@
 		43F8DEB6234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */; };
 		43F8DEB8234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */; };
 		43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */; };
+		C11407F52352B4BE00C11473 /* Semestre.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F42352B4BE00C11473 /* Semestre.swift */; };
+		C11407F72352B7E100C11473 /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F62352B7E100C11473 /* Materia.swift */; };
+		C11407F92352B83700C11473 /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F82352B83700C11473 /* Categoria.swift */; };
+		C11407FB2352B92500C11473 /* Actividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407FA2352B92500C11473 /* Actividad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregaMateria.swift; sourceTree = "<group>"; };
 		43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregaCategoria.swift; sourceTree = "<group>"; };
 		43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregaActividad.swift; sourceTree = "<group>"; };
+		C11407F42352B4BE00C11473 /* Semestre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semestre.swift; sourceTree = "<group>"; };
+		C11407F62352B7E100C11473 /* Materia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
+		C11407F82352B83700C11473 /* Categoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
+		C11407FA2352B92500C11473 /* Actividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,10 @@
 				43F8DE97234FF74900ABEEEE /* AppDelegate.swift */,
 				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
 				43F8DE9D234FF74900ABEEEE /* Main.storyboard */,
+				C11407F42352B4BE00C11473 /* Semestre.swift */,
+				C11407F62352B7E100C11473 /* Materia.swift */,
+				C11407F82352B83700C11473 /* Categoria.swift */,
+				C11407FA2352B92500C11473 /* Actividad.swift */,
 				43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */,
 				43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */,
 				43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */,
@@ -163,12 +175,16 @@
 				43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */,
 				43F8DEAC234FF8BE00ABEEEE /* TableViewControllerSemestre.swift in Sources */,
 				43F8DEB2234FF92F00ABEEEE /* TableViewControllerActividad.swift in Sources */,
+				C11407F92352B83700C11473 /* Categoria.swift in Sources */,
+				C11407F52352B4BE00C11473 /* Semestre.swift in Sources */,
 				43F8DE98234FF74900ABEEEE /* AppDelegate.swift in Sources */,
 				43F8DE9A234FF74900ABEEEE /* SceneDelegate.swift in Sources */,
 				43F8DEB0234FF91B00ABEEEE /* TableViewControllerCategoria.swift in Sources */,
 				43F8DEB4234FFC6100ABEEEE /* ViewControllerAgregaSemestre.swift in Sources */,
 				43F8DEB6234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift in Sources */,
 				43F8DEB8234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift in Sources */,
+				C11407F72352B7E100C11473 /* Materia.swift in Sources */,
+				C11407FB2352B92500C11473 /* Actividad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
