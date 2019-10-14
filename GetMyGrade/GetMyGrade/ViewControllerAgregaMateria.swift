@@ -7,14 +7,29 @@
 //
 
 import UIKit
-
+protocol protocoloAgregaMateria{
+    func agregaMateria(mat:Materia)->Void
+}
 class ViewControllerAgregaMateria: UIViewController {
-
+    
+    @IBOutlet weak var tfNombre: UITextField!
+    var delegado: protocoloAgregaMateria!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func guardar(_ sender: UIButton) {
+        if let nom = tfNombre.text
+        {
+            let unaMat = Materia(nombre:nom, id: 1, idSemestre: 1)
+            delegado.agregaMateria(mat: unaMat)
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    
+    
     
 
     /*

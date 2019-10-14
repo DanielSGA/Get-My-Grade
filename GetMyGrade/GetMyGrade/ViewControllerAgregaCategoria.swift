@@ -7,14 +7,30 @@
 //
 
 import UIKit
-
+protocol protocoloAgregaCategoria{
+    func agregaCategoria(cat:Categoria)->Void
+}
 class ViewControllerAgregaCategoria: UIViewController {
 
+    @IBOutlet weak var tfNombre: UITextField!
+    @IBOutlet weak var tfPorcentaje: UITextField!
+    var delegado: protocoloAgregaCategoria!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func guardar(_ sender: UIButton) {
+        if let nom = tfNombre.text,
+            let porc = Int(tfPorcentaje.text!)
+        {
+            let unaCat = Categoria(nombre:nom, ponderacion: porc, id: 1, idMateria: 1)
+            delegado.agregaCategoria(cat: unaCat)
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    
     
 
     /*

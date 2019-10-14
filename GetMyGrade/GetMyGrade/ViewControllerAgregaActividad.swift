@@ -7,14 +7,30 @@
 //
 
 import UIKit
-
+protocol protocoloAgregaActividad{
+func agregaActividad(act:Actividad)->Void
+}
 class ViewControllerAgregaActividad: UIViewController {
 
+    @IBOutlet weak var tfNombre: UITextField!
+    @IBOutlet weak var tfCalificacion: UITextField!
+    var delegado: protocoloAgregaActividad!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func guardar(_ sender: UIButton) {
+        if let nom = tfNombre.text,
+            let cal = Int(tfCalificacion.text!)
+        {
+            let unAct = Actividad(nombre:nom, calificacion: cal, id: 1, idCategoria: 1)
+            delegado.agregaActividad(act: unAct)
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
+    
     
 
     /*

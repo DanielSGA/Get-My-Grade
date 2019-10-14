@@ -8,8 +8,13 @@
 
 import UIKit
 
-class TableViewControllerActividad: UITableViewController {
-
+class TableViewControllerActividad: UITableViewController, protocoloAgregaActividad {
+    func agregaActividad(act: Actividad) {
+        listaActividades.append(act)
+        tableView.reloadData()
+    }
+    var idCategoria: Int!
+    var listaActividades = [Actividad]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,14 +34,14 @@ class TableViewControllerActividad: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return listaActividades.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text=listaActividades[indexPath.row].nombre
 
         return cell
     }
@@ -77,14 +82,17 @@ class TableViewControllerActividad: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier=="segue_agrega_actividad")
+        {
+            let viewAgregar = segue.destination as! ViewControllerAgregaActividad
+            viewAgregar.delegado = self
+        }
     }
-    */
+    
 
 }

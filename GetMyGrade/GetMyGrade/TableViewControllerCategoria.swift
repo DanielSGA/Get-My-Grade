@@ -8,8 +8,13 @@
 
 import UIKit
 
-class TableViewControllerCategoria: UITableViewController {
-
+class TableViewControllerCategoria: UITableViewController, protocoloAgregaCategoria {
+    func agregaCategoria(cat: Categoria) {
+        listaCategorias.append(cat)
+        tableView.reloadData()
+    }
+    var idMateria: Int!
+    var listaCategorias = [Categoria]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,14 +34,14 @@ class TableViewControllerCategoria: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return listaCategorias.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
-        // Configure the cell...
+        cell.textLabel?.text=listaCategorias[indexPath.row].nombre
 
         return cell
     }
@@ -77,14 +82,23 @@ class TableViewControllerCategoria: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier=="segue_agrega_categoria")
+        {
+            let viewAgregar = segue.destination as! ViewControllerAgregaCategoria
+            viewAgregar.delegado = self
+        }
+        else
+        {
+            let vistaActividad = segue.destination as! TableViewControllerActividad
+            let indexPath = tableView.indexPathForSelectedRow!
+            vistaActividad.idCategoria = listaCategorias[indexPath.row].id
+        }
     }
-    */
+    
 
 }
