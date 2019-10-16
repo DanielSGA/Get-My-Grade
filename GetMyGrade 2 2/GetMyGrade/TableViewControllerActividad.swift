@@ -21,12 +21,14 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     
     func agregaActividad(act: Actividad) {
         listaActividades.append(act)
+        listaActividadesMostrar.append(act)
         tableView.reloadData()
     }
     var idCategoria: Int!
     var nomMateria: String!
     var nomCategoria: String!
     var listaActividades = [Actividad]()
+    var listaActividadesMostrar = [Actividad]()
     
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -52,7 +54,22 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         catch {
             print("Error reading or decoding file")
         }
+        actualizarActividades()
     }
+    func actualizarActividades () -> Void
+       {
+           var i = 0
+        while (listaActividades.count > i)
+           {
+               if(listaActividades[i].idCategoria == idCategoria)
+               {
+                let act = listaActividades[i]
+                listaActividadesMostrar.append(act)
+               }
+           i+=1
+           }
+           
+       }
 
     // MARK: - Table view data source
 
@@ -63,17 +80,16 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listaActividades.count
+        return listaActividadesMostrar.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        cell.textLabel?.text=listaActividades[indexPath.row].nombre
-        cell.detailTextLabel?.text = String(listaActividades[indexPath.row].calificacion)
-
+        cell.textLabel?.text=listaActividadesMostrar[indexPath.row].nombre
+        cell.detailTextLabel?.text = String(listaActividadesMostrar[indexPath.row].calificacion)
         return cell
+        
     }
     
 
@@ -90,7 +106,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            listaActividades.remove(at: indexPath.row)
+            listaActividadesMostrar.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -131,6 +147,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         {
             let viewAgregar = segue.destination as! ViewControllerAgregaActividad
             viewAgregar.delegado = self
+            viewAgregar.idCategoria = idCategoria
         }
     }
     

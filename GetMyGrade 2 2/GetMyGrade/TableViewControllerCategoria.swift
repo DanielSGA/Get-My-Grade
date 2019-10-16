@@ -21,12 +21,13 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     
     func agregaCategoria(cat: Categoria) {
         listaCategorias.append(cat)
+        listaCategoriasMostrar.append(cat)
         tableView.reloadData()
     }
     var idMateria: Int!
     var nomMateria: String!
     var listaCategorias = [Categoria]()
-    var contador = 0
+    var listaCategoriasMostrar = [Categoria]()
     
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -39,15 +40,6 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var i = 0
-        while i<listaCategorias.count
-        {
-            if(listaCategorias[i].idMateria == idMateria)
-            {
-                contador+=1
-            }
-            i+=1
-        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -62,7 +54,21 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         catch {
             print("Error reading or decoding file")
         }
+         actualizarCategorias()
         
+    }
+    func actualizarCategorias () -> Void
+    {
+        var i = 0
+        while (listaCategorias.count > i)
+        {
+            if(listaCategorias[i].idMateria == idMateria)
+            {
+              let cat = listaCategorias[i]
+                listaCategoriasMostrar.append(cat)
+            }
+        i+=1
+        }
         
     }
 
@@ -74,18 +80,15 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return listaCategorias.count
+        // #warning Incomplete implementation, return the number of row
+        
+        return listaCategoriasMostrar.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        if(listaCategorias[indexPath.row].idMateria == idMateria)
-        {
-            cell.textLabel?.text=listaCategorias[indexPath.row].nombre
-        }
-
+            cell.textLabel?.text=listaCategoriasMostrar[indexPath.row].nombre
         return cell
     }
     
@@ -103,7 +106,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            listaCategorias.remove(at: indexPath.row)
+            listaCategoriasMostrar.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

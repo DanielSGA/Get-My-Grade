@@ -16,6 +16,7 @@ class ViewControllerAgregaActividad: UIViewController {
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfCalificacion: UITextField!
     var delegado: protocoloAgregaActividad!
+    var idCategoria: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +27,8 @@ class ViewControllerAgregaActividad: UIViewController {
         if let nom = tfNombre.text,
             let cal = Int(tfCalificacion.text!)
         {
-            let unAct = Actividad(nombre:nom, calificacion: cal, id: 1, idCategoria: 1)
+            let number = Int.random(in: 0 ... 1000)
+            let unAct = Actividad(nombre:nom, calificacion: cal, id: number, idCategoria: idCategoria)
             delegado.agregaActividad(act: unAct)
             delegado.guardaActividades()
             navigationController?.popViewController(animated: true)

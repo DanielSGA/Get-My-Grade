@@ -27,7 +27,7 @@ class ViewControllerAgregaCategoria: UIViewController {
         if let nom = tfNombre.text,
             let porc = Int(tfPorcentaje.text!)
         {
-            let number = Int.random(in: 0 ... 1000)
+            let number = Int.random(in: 0 ... 10000)
             let unaCat = Categoria(nombre:nom, ponderacion: porc, id: number, idMateria: idMateria)
             delegado.agregaCategoria(cat: unaCat)
             delegado.guardaCategorias()
