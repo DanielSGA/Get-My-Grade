@@ -9,12 +9,14 @@
 import UIKit
 protocol protocoloAgregaCategoria{
     func agregaCategoria(cat:Categoria)->Void
+    func guardaCategorias()->Void
 }
 class ViewControllerAgregaCategoria: UIViewController {
 
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfPorcentaje: UITextField!
     var delegado: protocoloAgregaCategoria!
+    var idMateria : Int!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,9 +27,11 @@ class ViewControllerAgregaCategoria: UIViewController {
         if let nom = tfNombre.text,
             let porc = Int(tfPorcentaje.text!)
         {
-            let unaCat = Categoria(nombre:nom, ponderacion: porc, id: 1, idMateria: 1)
+            let number = Int.random(in: 0 ... 1000)
+            let unaCat = Categoria(nombre:nom, ponderacion: porc, id: number, idMateria: idMateria)
             delegado.agregaCategoria(cat: unaCat)
-            navigationController?.popToRootViewController(animated: true)
+            delegado.guardaCategorias()
+            navigationController?.popViewController(animated: true)
         }
     }
     

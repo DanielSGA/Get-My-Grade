@@ -9,6 +9,7 @@
 import UIKit
 protocol protocoloAgregaActividad{
 func agregaActividad(act:Actividad)->Void
+func guardaActividades()->Void
 }
 class ViewControllerAgregaActividad: UIViewController {
 
@@ -27,7 +28,8 @@ class ViewControllerAgregaActividad: UIViewController {
         {
             let unAct = Actividad(nombre:nom, calificacion: cal, id: 1, idCategoria: 1)
             delegado.agregaActividad(act: unAct)
-            navigationController?.popToRootViewController(animated: true)
+            delegado.guardaActividades()
+            navigationController?.popViewController(animated: true)
         }
     }
     

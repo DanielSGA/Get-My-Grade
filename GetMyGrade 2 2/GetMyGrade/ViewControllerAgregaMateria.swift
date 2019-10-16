@@ -9,11 +9,16 @@
 import UIKit
 protocol protocoloAgregaMateria{
     func agregaMateria(mat:Materia)->Void
+    func guardaMaterias()->Void
 }
 class ViewControllerAgregaMateria: UIViewController {
     
     @IBOutlet weak var tfNombre: UITextField!
     var delegado: protocoloAgregaMateria!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,10 +28,13 @@ class ViewControllerAgregaMateria: UIViewController {
     @IBAction func guardar(_ sender: UIButton) {
         if let nom = tfNombre.text
         {
-            let unaMat = Materia(nombre:nom, id: 1, idSemestre: 1)
+            let number = Int.random(in: 0 ... 1000)
+            let unaMat = Materia(nombre:nom, id: number)
             delegado.agregaMateria(mat: unaMat)
+            delegado.guardaMaterias()
             navigationController?.popToRootViewController(animated: true)
         }
+        
     }
     
     

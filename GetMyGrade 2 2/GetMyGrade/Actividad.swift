@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Actividad: NSObject {
+class Actividad: Codable {
     var nombre: String = ""
     var calificacion: Int = 0
     var id : Int = 0
