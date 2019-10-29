@@ -257,6 +257,9 @@
                         <color key="backgroundColor" red="0.5" green="0.12097989125753505" blue="0.064635229192656463" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Pkl-9b-zqG"/>
                     </view>
+                    <connections>
+                        <outlet property="btnStart" destination="OTK-c5-gEn" id="car-2t-34u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkK-yk-VEv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

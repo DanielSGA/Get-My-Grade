@@ -8,8 +8,12 @@
 
 import UIKit
 
-class StartView: UIViewController {
 
+class StartView: UIViewController {
+    
+    
+    @IBOutlet weak var btnStart: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
