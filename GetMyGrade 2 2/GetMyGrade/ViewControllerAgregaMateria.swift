@@ -15,8 +15,8 @@ class ViewControllerAgregaMateria: UIViewController {
     
     @IBOutlet weak var tfNombre: UITextField!
     var delegado: protocoloAgregaMateria!
-    
-    
+        
+    //var gradientLayer: CAGradientLayer!
     
     
     override func viewDidLoad() {
@@ -37,8 +37,25 @@ class ViewControllerAgregaMateria: UIViewController {
         
     }
     
+    /*
+    
+    func createGradientLayer() {
+        gradientLayer = CAGradientLayer()
+     
+        gradientLayer.frame = self.view.bounds
+     
+        gradientLayer.colors = [UIColor.red.cgColor, UIColor.white.cgColor]
+     
+        self.view.layer.addSublayer(gradientLayer)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        createGradientLayer()
+    }
     
     
+    */
 
     /*
     // MARK: - Navigation

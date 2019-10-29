@@ -45,7 +45,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.title = nomMateria
+        self.title = nomMateria + " - Categorías"
         
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
