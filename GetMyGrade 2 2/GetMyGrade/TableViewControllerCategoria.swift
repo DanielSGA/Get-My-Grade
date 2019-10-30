@@ -153,7 +153,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         {
             let vistaActividad = segue.destination as! TableViewControllerActividad
             let indexPath = tableView.indexPathForSelectedRow!
-            vistaActividad.idCategoria = listaCategorias[indexPath.row].id
+            vistaActividad.idCategoria = listaCategoriasMostrar[indexPath.row].id
             vistaActividad.nomMateria = nomMateria
             vistaActividad.nomCategoria = listaCategorias[indexPath.row].nombre
         }
