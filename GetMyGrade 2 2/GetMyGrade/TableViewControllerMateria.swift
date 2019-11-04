@@ -71,7 +71,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         cell.textLabel?.text=listaMaterias[indexPath.row].nombre
-        
+        cell.detailTextLabel?.text=" "
 
         return cell
     }
