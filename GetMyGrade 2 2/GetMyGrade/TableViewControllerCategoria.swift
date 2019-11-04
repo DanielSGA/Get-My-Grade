@@ -89,7 +89,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text=listaCategoriasMostrar[indexPath.row].nombre
-        cell.detailTextLabel?.text = String(listaCategoriasMostrar[indexPath.row].ponderacion)
+        cell.detailTextLabel?.text = String(listaCategoriasMostrar[indexPath.row].ponderacion) + "%"
         return cell
     }
     
