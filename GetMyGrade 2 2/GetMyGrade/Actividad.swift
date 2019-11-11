@@ -12,7 +12,7 @@ class Actividad: Codable {
     var nombre: String = ""
     var calificacion: Int = 0
     var id : Int = 0
-    var idCategoria: Int
+    var idCategoria: Int = 0
     init(nombre:String,calificacion:Int,id:Int,idCategoria: Int)
     {
         self.nombre=nombre

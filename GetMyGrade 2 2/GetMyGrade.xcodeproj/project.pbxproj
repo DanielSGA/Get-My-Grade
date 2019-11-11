@@ -19,6 +19,8 @@
 		43F8DEB6234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */; };
 		43F8DEB8234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */; };
 		43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */; };
+		A2FF36FA2371D4AD00F34C67 /* ViewControllerAnalisis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF36F92371D4AD00F34C67 /* ViewControllerAnalisis.swift */; };
+		A2FF36FC2371D90D00F34C67 /* TableViewControllerMetas.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FF36FB2371D90D00F34C67 /* TableViewControllerMetas.swift */; };
 		C11407F72352B7E100C11473 /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F62352B7E100C11473 /* Materia.swift */; };
 		C11407F92352B83700C11473 /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F82352B83700C11473 /* Categoria.swift */; };
 		C11407FB2352B92500C11473 /* Actividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407FA2352B92500C11473 /* Actividad.swift */; };
@@ -39,6 +41,8 @@
 		43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregaMateria.swift; sourceTree = "<group>"; };
 		43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregaCategoria.swift; sourceTree = "<group>"; };
 		43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregaActividad.swift; sourceTree = "<group>"; };
+		A2FF36F92371D4AD00F34C67 /* ViewControllerAnalisis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAnalisis.swift; sourceTree = "<group>"; };
+		A2FF36FB2371D90D00F34C67 /* TableViewControllerMetas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewControllerMetas.swift; sourceTree = "<group>"; };
 		C11407F62352B7E100C11473 /* Materia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
 		C11407F82352B83700C11473 /* Categoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
 		C11407FA2352B92500C11473 /* Actividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividad.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				43F8DEAD234FF8EF00ABEEEE /* TableViewControllerMateria.swift */,
 				43F8DEAF234FF91B00ABEEEE /* TableViewControllerCategoria.swift */,
 				43F8DEB1234FF92F00ABEEEE /* TableViewControllerActividad.swift */,
+				A2FF36F92371D4AD00F34C67 /* ViewControllerAnalisis.swift */,
+				A2FF36FB2371D90D00F34C67 /* TableViewControllerMetas.swift */,
 				43F8DEA0234FF74B00ABEEEE /* Assets.xcassets */,
 				43F8DEA2234FF74B00ABEEEE /* LaunchScreen.storyboard */,
 				43F8DEA5234FF74B00ABEEEE /* Info.plist */,
@@ -169,6 +175,7 @@
 				43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */,
 				43F8DEB2234FF92F00ABEEEE /* TableViewControllerActividad.swift in Sources */,
 				0CCA554723669852004C8E32 /* StartView.swift in Sources */,
+				A2FF36FA2371D4AD00F34C67 /* ViewControllerAnalisis.swift in Sources */,
 				C11407F92352B83700C11473 /* Categoria.swift in Sources */,
 				43F8DE98234FF74900ABEEEE /* AppDelegate.swift in Sources */,
 				43F8DE9A234FF74900ABEEEE /* SceneDelegate.swift in Sources */,
@@ -176,6 +183,7 @@
 				43F8DEB6234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift in Sources */,
 				43F8DEB8234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift in Sources */,
 				C11407F72352B7E100C11473 /* Materia.swift in Sources */,
+				A2FF36FC2371D90D00F34C67 /* TableViewControllerMetas.swift in Sources */,
 				C11407FB2352B92500C11473 /* Actividad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

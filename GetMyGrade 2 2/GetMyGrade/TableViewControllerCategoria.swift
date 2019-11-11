@@ -89,7 +89,15 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text=listaCategoriasMostrar[indexPath.row].nombre
-        cell.detailTextLabel?.text = String(listaCategoriasMostrar[indexPath.row].ponderacion) + "%"
+        if(listaCategoriasMostrar[indexPath.row].calificacion==0)
+        {
+            cell.detailTextLabel?.text = String(listaCategoriasMostrar[indexPath.row].ponderacion) + "%"
+        }
+        else
+        {
+            cell.detailTextLabel?.text = String((listaCategoriasMostrar[indexPath.row].calificacion*listaCategoriasMostrar[indexPath.row].ponderacion)/100) + "% /" + String(listaCategoriasMostrar[indexPath.row].ponderacion) + "%"
+        }
+        
         return cell
     }
     
@@ -107,7 +115,9 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            borrarCategorias(idCat: listaCategoriasMostrar[indexPath.row].id)
             listaCategoriasMostrar.remove(at: indexPath.row)
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -115,7 +125,18 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         
         guardaCategorias()
     }
-    
+    func borrarCategorias(idCat:Int)
+    {
+        var i=0
+        while(i<listaCategorias.count)
+        {
+            if(idCat==listaCategorias[i].id)
+            {
+               listaCategorias.remove(at: i)
+            }
+            i+=1
+        }
+    }
 
     
     // Override to support rearranging the table view.
