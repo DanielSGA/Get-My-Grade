@@ -60,7 +60,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             
             i += 1
         }
-       print("Se actualizaron calificaciones")
+     
         
     }
     
@@ -126,13 +126,14 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         }
         actualizarCalif()
         actualizarCategorias()
+        guardaCategorias()
         tableView.reloadData()
     }
     
     
     func actualizarCategorias () -> Void
     {
-         print("Se actualizaron valores de Mostrar")
+       
         if(listaCategoriasMostrar.count>0)
         {
             listaCategoriasMostrar.removeAll()
@@ -165,7 +166,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         print("Se creo la cell")
+         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text=listaCategoriasMostrar[indexPath.row].nombre
         

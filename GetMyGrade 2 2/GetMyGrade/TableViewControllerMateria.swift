@@ -10,6 +10,7 @@ import UIKit
 
 class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria {
     func guardaMaterias() {
+        actualizarCalif()
         do {
            let data = try PropertyListEncoder().encode(listaMaterias)
            try data.write(to: dataFileUrl())
@@ -25,13 +26,17 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     }
     
     var listaMaterias = [Materia]()
-    
+    var listaCategorias = [Categoria]()
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent("Materias.plist")
         return pathArchivo
     }
-    
+    func dataFileUrl2() -> URL {
+           let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+           let pathArchivo = url.appendingPathComponent("Categorias.plist")
+           return pathArchivo
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +55,58 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         catch {
             print("Error reading or decoding file")
         }
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl2())
+            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
         
-        
+        actualizarCalif()
     }
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+         do {
+                    let data = try Data.init(contentsOf: dataFileUrl())
+                    listaMaterias = try PropertyListDecoder().decode([Materia].self, from: data)
+                }
+                catch {
+                    print("Error reading or decoding file")
+                }
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl2())
+            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+          actualizarCalif()
+          tableView.reloadData()
+      }
+   func actualizarCalif() {
+       var i = 0
+       var j = 0
+       var suma = 0
+       while (listaMaterias.count > i){
+           j = 0
+           suma = 0
+            while (listaCategorias.count > j) {
+               
+               if (listaMaterias[i].id == listaCategorias[j].idMateria){
+                suma += listaCategorias[j].calificacion
+                 
+               }
+               
+               j += 1
+           }
+           listaMaterias[i].calificacion = suma
+           
+           i += 1
+       }
+     
+       
+   }
 
     // MARK: - Table view data source
 
