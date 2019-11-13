@@ -76,17 +76,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         return pathArchivo
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        actualizarCalif()
-        tableView.reloadData()
-
-    }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-        print("entro will apear")
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
          print("entro didLoad")
@@ -96,7 +86,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = nomMateria + " - Categorías"
-        
+       
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
             listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
@@ -114,6 +104,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         catch {
             print("Error reading or decoding file")
         }
+        actualizarCalif()
         actualizarCategorias()
         
     }
@@ -122,6 +113,8 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     
     func actualizarCategorias () -> Void
     {
+        
+        
         var i = 0
         while (listaCategorias.count > i)
         {
