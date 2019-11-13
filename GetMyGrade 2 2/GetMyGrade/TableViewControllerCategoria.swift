@@ -82,9 +82,14 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
 
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        print("entro will apear")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+         print("entro didLoad")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -237,7 +242,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             let indexPath = tableView.indexPathForSelectedRow!
             vistaActividad.idCategoria = listaCategoriasMostrar[indexPath.row].id
             vistaActividad.nomMateria = nomMateria
-            vistaActividad.nomCategoria = listaCategorias[indexPath.row].nombre
+            vistaActividad.nomCategoria = listaCategoriasMostrar[indexPath.row].nombre
         }
     }
    

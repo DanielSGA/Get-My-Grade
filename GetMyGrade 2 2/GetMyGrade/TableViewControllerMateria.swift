@@ -70,8 +70,16 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        if(listaMaterias[indexPath.row].calificacion==0)
+        {
         cell.textLabel?.text=listaMaterias[indexPath.row].nombre
         cell.detailTextLabel?.text=" "
+        }
+        else
+        {
+        cell.textLabel?.text=listaMaterias[indexPath.row].nombre
+        cell.detailTextLabel?.text=String(listaMaterias[indexPath.row].calificacion)
+        }
 
         return cell
     }
