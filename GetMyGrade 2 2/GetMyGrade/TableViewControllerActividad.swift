@@ -20,21 +20,12 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         }
     }
     
-    func guardaCategorias() {
-        do {
-           let data = try PropertyListEncoder().encode(listaCategorias)
-           try data.write(to: dataFileUrl())
-        }
-        catch {
-           print("Save Failed")
-        }
-    }
+    
     
     func agregaActividad(act: Actividad) {
         listaActividades.append(act)
         listaActividadesMostrar.append(act)
-        actualizarCalif()
-        guardaCategorias()
+        
         tableView.reloadData()
 
     }
@@ -42,41 +33,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     var nomMateria: String!
     var nomCategoria: String!
     var listaActividades = [Actividad]()
-    var listaCategorias = [Categoria]()
     var listaActividadesMostrar = [Actividad]()
-    
-    func actualizarCalif() {
-        var i = 0
-        var j = 0
-        var suma = 0
-        var cont = 0
-        while (listaCategorias.count > i){
-            j = 0
-            suma = 0
-            cont = 0
-                while (listaActividades.count > j) {
-                
-                if (listaCategorias[i].id == listaActividades[j].idCategoria){
-                    suma += listaActividades[j].calificacion
-                    cont += 1
-                }
-                
-                j += 1
-            }
-            
-            if cont != 0 {
-                suma = suma / cont
-            }
-            listaCategorias[i].calificacion = suma
-            
-            i += 1
-        }
-        //print(listaActividades.count)
-        
-    }
-    
-    
-    
     
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -84,11 +41,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         return pathArchivo
     }
     
-    func dataFileUrl2() -> URL {
-        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-        let pathArchivo = url.appendingPathComponent("Categorias.plist")
-        return pathArchivo
-    }
+    
     
     
     override func viewDidLoad() {
@@ -110,13 +63,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         }
         actualizarActividades()
         
-        do {
-            let data = try Data.init(contentsOf: dataFileUrl2())
-            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
-        }
-        catch {
-            print("Error reading or decoding file")
-        }
+     
         
         
     }
@@ -176,8 +123,8 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             borrarActividades(idCat: listaActividadesMostrar[indexPath.row].id)
             listaActividadesMostrar.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            actualizarCalif()
-            guardaCategorias()
+           
+          
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }

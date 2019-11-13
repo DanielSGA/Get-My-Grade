@@ -104,6 +104,8 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         catch {
             print("Error reading or decoding file")
         }
+        
+        
         actualizarCalif()
         actualizarCategorias()
         
