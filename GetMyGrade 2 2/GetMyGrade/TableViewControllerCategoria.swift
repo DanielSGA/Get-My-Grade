@@ -60,7 +60,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             
             i += 1
         }
-        //print(listaActividades.count)
+       print("Se actualizaron calificaciones")
         
     }
     
@@ -79,7 +79,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         print("entro didLoad")
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -94,8 +94,6 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         catch {
             print("Error reading or decoding file")
         }
-         
-        
         
         do {
             let data = try Data.init(contentsOf: dataFileUrl2())
@@ -105,18 +103,40 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             print("Error reading or decoding file")
         }
         
-        
         actualizarCalif()
         actualizarCategorias()
         
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl())
+            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl2())
+            listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+        actualizarCalif()
+        actualizarCategorias()
+        tableView.reloadData()
+    }
     
     
     func actualizarCategorias () -> Void
     {
-        
-        
+         print("Se actualizaron valores de Mostrar")
+        if(listaCategoriasMostrar.count>0)
+        {
+            listaCategoriasMostrar.removeAll()
+        }
         var i = 0
         while (listaCategorias.count > i)
         {
@@ -145,7 +165,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+         print("Se creo la cell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text=listaCategoriasMostrar[indexPath.row].nombre
         
