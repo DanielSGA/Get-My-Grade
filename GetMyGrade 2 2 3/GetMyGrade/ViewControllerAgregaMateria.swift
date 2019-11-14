@@ -29,7 +29,7 @@ class ViewControllerAgregaMateria: UIViewController {
         if let nom = tfNombre.text
         {
             let number = Int.random(in: 0 ... 1000)
-            let unaMat = Materia(nombre:nom, id: number, calificacion: 0)
+            let unaMat = Materia(nombre:nom, id: number, calificacion: 0, ponderacion:  0)
             delegado.agregaMateria(mat: unaMat)
             delegado.guardaMaterias()
             navigationController?.popToRootViewController(animated: true)

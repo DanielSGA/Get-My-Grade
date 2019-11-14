@@ -87,20 +87,28 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
    func actualizarCalif() {
        var i = 0
        var j = 0
-       var suma = 0
+       var suma = 0.0
+       var cont = 0
+    var sumaTotal = 0.0
        while (listaMaterias.count > i){
            j = 0
            suma = 0
+           sumaTotal = 0
             while (listaCategorias.count > j) {
                
                if (listaMaterias[i].id == listaCategorias[j].idMateria){
-                suma += listaCategorias[j].calificacion
-                 
-               }
+                sumaTotal = Double(listaCategorias[j].ponderacion)
+                suma += Double(listaCategorias[j].calificacion) * (Double(listaCategorias[j].ponderacion)/100)
+                cont += 1
+                print(suma)
+                
+                }
                
                j += 1
            }
-           listaMaterias[i].calificacion = suma
+        listaMaterias[i].calificacion = Int(suma)
+        listaMaterias[i].ponderacion = Int(sumaTotal)
+
            
            i += 1
        }
@@ -132,7 +140,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         else
         {
         cell.textLabel?.text=listaMaterias[indexPath.row].nombre
-        cell.detailTextLabel?.text=String(listaMaterias[indexPath.row].calificacion)
+            cell.detailTextLabel?.text=String(listaMaterias[indexPath.row].calificacion) + " / " + String(listaMaterias[indexPath.row].ponderacion)
         }
 
         return cell

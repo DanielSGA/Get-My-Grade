@@ -172,11 +172,11 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         
         if(listaCategoriasMostrar[indexPath.row].calificacion == 0)
         {
-            cell.detailTextLabel?.text = String(listaCategoriasMostrar[indexPath.row].ponderacion) + "%"
+            cell.detailTextLabel?.text = String(listaCategoriasMostrar[indexPath.row].ponderacion)
         }
         else
         {
-            cell.detailTextLabel?.text = String((listaCategoriasMostrar[indexPath.row].calificacion*listaCategoriasMostrar[indexPath.row].ponderacion)/100) + "% / " + String(listaCategoriasMostrar[indexPath.row].ponderacion) + "%"
+            cell.detailTextLabel?.text = String((listaCategoriasMostrar[indexPath.row].calificacion*listaCategoriasMostrar[indexPath.row].ponderacion)/100) + " / " + String(listaCategoriasMostrar[indexPath.row].ponderacion)
         }
         
         return cell
