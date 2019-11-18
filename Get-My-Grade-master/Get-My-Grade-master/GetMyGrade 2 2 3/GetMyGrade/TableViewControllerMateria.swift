@@ -85,6 +85,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
             print("Error reading or decoding file")
         }
           actualizarCalif()
+          guardaMaterias()
           tableView.reloadData()
       }
    func actualizarCalif() {

@@ -42,6 +42,7 @@ class ViewControllerAnalisis: UIViewController {
 
             if (listaMaterias[i].id == idMat){
                 matAnalisis = listaMaterias[i]
+                print(listaMaterias[i].calificacion)
             }
                            
         i += 1
