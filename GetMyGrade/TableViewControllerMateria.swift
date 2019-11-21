@@ -101,7 +101,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
             while (listaCategorias.count > j) {
                
                if (listaMaterias[i].id == listaCategorias[j].idMateria){
-                sumaTotal = Double(listaCategorias[j].ponderacion)
+                sumaTotal += Double(listaCategorias[j].ponderacion)
                 suma += Double(listaCategorias[j].calificacion) * (Double(listaCategorias[j].ponderacion)/100)
                 cont += 1
                 print(suma)

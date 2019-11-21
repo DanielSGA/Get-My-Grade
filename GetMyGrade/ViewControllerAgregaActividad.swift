@@ -32,11 +32,12 @@ class ViewControllerAgregaActividad: UIViewController {
     }
     
     @IBAction func guardar(_ sender: UIButton) {
-        if let nom = tfNombre.text,
-            let cal = Int(tfCalificacion.text!)
+        let nom = tfNombre.text
+        let cal = Int(tfCalificacion.text!)
+        if nom != "", cal != nil
         {
             let number = Int.random(in: 0 ... 1000)
-            let unAct = Actividad(nombre:nom, calificacion: cal, id: number, idCategoria: idCategoria)
+            let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: idCategoria)
             delegado.agregaActividad(act: unAct)
             delegado.guardaActividades()
             navigationController?.popViewController(animated: true)

@@ -31,10 +31,11 @@ class ViewControllerAgregaMateria: UIViewController {
     }
     
     @IBAction func guardar(_ sender: UIButton) {
-        if let nom = tfNombre.text
+        let nom = tfNombre.text
+        if nom != ""
         {
             let number = Int.random(in: 0 ... 1000)
-            let unaMat = Materia(nombre:nom, id: number, calificacion: 0, ponderacion:  0)
+            let unaMat = Materia(nombre:nom!, id: number, calificacion: 0, ponderacion:  0)
             delegado.agregaMateria(mat: unaMat)
             delegado.guardaMaterias()
             navigationController?.popToRootViewController(animated: true)

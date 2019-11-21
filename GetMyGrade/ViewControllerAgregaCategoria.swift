@@ -33,11 +33,12 @@ class ViewControllerAgregaCategoria: UIViewController {
     }
     
     @IBAction func guardar(_ sender: UIButton) {
-        if let nom = tfNombre.text,
-            let porc = Int(tfPorcentaje.text!)
+        let nom = tfNombre.text
+        let porc = Int(tfPorcentaje.text!)
+        if nom != "", porc != nil
         {
             let number = Int.random(in: 0 ... 10000)
-            let unaCat = Categoria(nombre:nom, ponderacion: porc, id: number, idMateria: idMateria, calificacion: 0)
+            let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
             delegado.agregaCategoria(cat: unaCat)
             delegado.guardaCategorias()
             navigationController?.popViewController(animated: true)
