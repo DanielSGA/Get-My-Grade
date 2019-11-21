@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="idZ-EX-KuH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="idZ-EX-KuH">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -429,7 +429,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-tS-5UC">
-                                        <rect key="frame" x="35.5" y="324" width="304" height="88.000000000000028"/>
+                                        <rect key="frame" x="-116.5" y="324" width="608" height="88"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="rkh-Zb-kRP"/>
                                         </constraints>
@@ -571,6 +571,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="JtD-ti-LfM"/>
                     <connections>
+                        <outlet property="scrollView" destination="HYp-8H-MMT" id="rpV-aC-RYY"/>
                         <outlet property="tfCalificacion" destination="on1-j0-Wz6" id="azh-XA-Npp"/>
                         <outlet property="tfNombre" destination="Zwx-3d-aj5" id="QGc-Xz-ihs"/>
                     </connections>
@@ -654,6 +655,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="gtE-MA-EV7"/>
                     <connections>
+                        <outlet property="scrollView" destination="sxA-su-9tt" id="pvO-An-gsU"/>
                         <outlet property="tfNombre" destination="0q3-vg-Evf" id="CrW-EB-4cj"/>
                         <outlet property="tfPorcentaje" destination="4Ng-Wu-GFE" id="9PN-ho-kNL"/>
                     </connections>
@@ -671,6 +673,6 @@
     <resources>
         <image name="boton1" width="304" height="107"/>
         <image name="credits" width="1000" height="1000"/>
-        <image name="info.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="info.circle.fill" catalog="system" width="64" height="62"/>
     </resources>
 </document>
