@@ -289,7 +289,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-nj-XxW">
-                                        <rect key="frame" x="99.5" y="270" width="176" height="67.000000000000028"/>
+                                        <rect key="frame" x="99.5" y="270" width="176" height="67"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="67" id="OSN-RF-Gja"/>
                                             <constraint firstAttribute="height" constant="67" id="dxF-am-3mr"/>
@@ -487,7 +487,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-tS-5UC">
-                                        <rect key="frame" x="35.5" y="321" width="304" height="88.000000000000028"/>
+                                        <rect key="frame" x="35.5" y="321" width="304" height="88"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="rkh-Zb-kRP"/>
                                         </constraints>
