@@ -36,11 +36,25 @@ class ViewControllerAgregaActividad: UIViewController {
         let cal = Int(tfCalificacion.text!)
         if nom != "", cal != nil
         {
+            if(cal!>100)
+            {
+                let alert = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion mayor a 100", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)
+                    
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "Cambiar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)
+                    self.tfCalificacion.text!="0"
+                }))
+            }
+            else
+            {
             let number = Int.random(in: 0 ... 1000)
             let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: idCategoria)
             delegado.agregaActividad(act: unAct)
             delegado.guardaActividades()
             navigationController?.popViewController(animated: true)
+            }
         }
     }
     
