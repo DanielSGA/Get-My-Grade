@@ -34,27 +34,32 @@ class ViewControllerAgregaActividad: UIViewController {
     @IBAction func guardar(_ sender: UIButton) {
         let nom = tfNombre.text
         let cal = Int(tfCalificacion.text!)
-        if nom != "", cal != nil
+        if(cal!>100)
         {
-            if(cal!>100)
-            {
-                let alert = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion mayor a 100", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)
+        let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
+        let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
                     
-                    
-                }))
-                alert.addAction(UIAlertAction(title: "Cambiar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)
-                    self.tfCalificacion.text!="0"
-                }))
+        }
+            let aceptar = UIAlertAction(title: "Aceptar", style: .default){
+                (action) in
+                let number = Int.random(in: 0 ... 1000)
+                let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: self.idCategoria)
+                self.delegado.agregaActividad(act: unAct)
+                self.delegado.guardaActividades()
+                self.navigationController?.popViewController(animated: true)
             }
-            else
-            {
+        alertController.addAction(aceptar)
+        alertController.addAction(cancelar)
+        present(alertController,animated: true,completion: nil)
+        }
+        if nom != "", cal != nil , cal!<100
+        {
+           
             let number = Int.random(in: 0 ... 1000)
             let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: idCategoria)
             delegado.agregaActividad(act: unAct)
             delegado.guardaActividades()
             navigationController?.popViewController(animated: true)
-            }
         }
     }
     

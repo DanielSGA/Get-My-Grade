@@ -20,6 +20,7 @@ class ViewControllerAgregaCategoria: UIViewController {
     var idMateria : Int!
     var scrollOffset : CGFloat = 0
     var distance : CGFloat = 0
+    var listaCategorias = [Categoria]()
     @IBAction func quitaTeclado() {
         view.endEditing(true)
     }
@@ -28,14 +29,55 @@ class ViewControllerAgregaCategoria: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl())
+            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
     }
-    
+    func dataFileUrl() -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent("Categorias.plist")
+        return pathArchivo
+    }
+    func calcularPorc() -> Int {
+        var acum = 0
+        var i = 0
+        while(listaCategorias.count>i)
+        {
+            if(listaCategorias[i].idMateria == idMateria)
+            {
+                acum+=listaCategorias[i].ponderacion
+            }
+            i = i + 1
+        }
+        return acum
+    }
     @IBAction func guardar(_ sender: UIButton) {
         let nom = tfNombre.text
         let porc = Int(tfPorcentaje.text!)
-        if nom != "", porc != nil
+        let porcAcum = calcularPorc() + porc!
+        if(porcAcum>100)
+        {
+            let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
+            let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
+                        
+            }
+                let aceptar = UIAlertAction(title: "Aceptar", style: .default){
+                    (action) in
+                        let number = Int.random(in: 0 ... 10000)
+                    let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
+                    self.delegado.agregaCategoria(cat: unaCat)
+                    self.delegado.guardaCategorias()
+                    self.navigationController?.popViewController(animated: true)
+                }
+            alertController.addAction(aceptar)
+            alertController.addAction(cancelar)
+            present(alertController,animated: true,completion: nil)
+        }
+        if nom != "", porc != nil , porcAcum<100
         {
             let number = Int.random(in: 0 ... 10000)
             let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
