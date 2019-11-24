@@ -219,7 +219,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         
         if(listaCategoriasMostrar[indexPath.row].calificacion == 0)
         {
-            cell.lbCalif.text = String(listaCategoriasMostrar[indexPath.row].ponderacion)
+            cell.lbCalif.text = "0" + " / " + String(listaCategoriasMostrar[indexPath.row].ponderacion)
         }
         else
         {
