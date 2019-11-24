@@ -48,6 +48,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        editButtonItem.title = "Borrar"
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = "Materias"
         
@@ -125,6 +126,15 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     override var shouldAutorotate: Bool {
     return false
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // MARK: - Table view data source
 

@@ -48,6 +48,45 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     }
     
     
+    @IBAction func editar(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Editar Calificación", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Escribe nueva calificación"})
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
+        
+        let submitAction = UIAlertAction(title: "Aceptar", style: .default) { [unowned alert] _ in
+            let pond_Nueva = Int(alert.textFields![0].text!)
+            
+        var x = 0
+            while x < self.listaActividades.count{
+                
+                if self.listaActividades[x].id == sender.tag {
+
+                    self.listaActividades[x].calificacion = pond_Nueva!
+                    
+                }
+            
+                x += 1
+            }
+            
+            self.guardaActividades()
+            self.tableView.reloadData()
+
+            
+            
+            
+        }
+            
+            alert.addAction(submitAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+            
+    }
     
     
     override func viewDidLoad() {
@@ -57,6 +96,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        editButtonItem.title = "Borrar"
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = nomMateria + " - " + nomCategoria
         
@@ -105,9 +145,13 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text=listaActividadesMostrar[indexPath.row].nombre
-        cell.detailTextLabel?.text = String(listaActividadesMostrar[indexPath.row].calificacion)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellActividad
+        cell.lbNombre.text=listaActividadesMostrar[indexPath.row].nombre
+        cell.lbCalif.text = String(listaActividadesMostrar[indexPath.row].calificacion)
+        
+        cell.btEditar.tag = listaActividades[indexPath.row].id
+
+        
         return cell
         
     }

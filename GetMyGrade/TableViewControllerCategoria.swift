@@ -34,6 +34,47 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     var listaCategoriasMostrar = [Categoria]()
     
     
+    
+    @IBAction func Editar(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Editar Porcentaje", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addTextField(configurationHandler: { (textField) in
+        textField.placeholder = "Escribe nuevo porcentaje"})
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
+        
+        let submitAction = UIAlertAction(title: "Aceptar", style: .default) { [unowned alert] _ in
+            let pond_Nueva = Int(alert.textFields![0].text!)
+            
+        var x = 0
+            while x < self.listaCategorias.count{
+                
+                if self.listaCategorias[x].id == sender.tag {
+                    print(self.listaCategorias[x].ponderacion)
+                    self.listaCategorias[x].ponderacion = pond_Nueva!
+                    
+                }
+            
+                x += 1
+            }
+            
+            self.guardaCategorias()
+            self.tableView.reloadData()
+
+            
+            
+            
+        }
+            
+            alert.addAction(submitAction)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    
     func actualizarCalif() {
         var i = 0
         var j = 0
@@ -89,6 +130,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        editButtonItem.title = "Borrar"
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = nomMateria + " - Categorías"
        
@@ -172,18 +214,20 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-            cell.textLabel?.text=listaCategoriasMostrar[indexPath.row].nombre
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellCategoria
+            cell.lbNombre.text=listaCategoriasMostrar[indexPath.row].nombre
         
         if(listaCategoriasMostrar[indexPath.row].calificacion == 0)
         {
-            cell.detailTextLabel?.text = String(listaCategoriasMostrar[indexPath.row].ponderacion)
+            cell.lbCalif.text = String(listaCategoriasMostrar[indexPath.row].ponderacion)
         }
         else
         {
-            cell.detailTextLabel?.text = String((listaCategoriasMostrar[indexPath.row].calificacion*listaCategoriasMostrar[indexPath.row].ponderacion)/100) + " / " + String(listaCategoriasMostrar[indexPath.row].ponderacion)
+            cell.lbCalif?.text = String((listaCategoriasMostrar[indexPath.row].calificacion*listaCategoriasMostrar[indexPath.row].ponderacion)/100) + " / " + String(listaCategoriasMostrar[indexPath.row].ponderacion)
         }
         
+        cell.btEditar.tag = listaCategoriasMostrar[indexPath.row].id
+
         return cell
     }
     

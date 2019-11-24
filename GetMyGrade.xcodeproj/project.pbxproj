@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0CCA554723669852004C8E32 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA554623669852004C8E32 /* StartView.swift */; };
 		43A0238023821A85004FD438 /* UITableViewCellMateria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */; };
+		43E68ADE238B15840044A2CE /* TableViewCellCategoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */; };
+		43E68AE0238B20330044A2CE /* TableViewCellActividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */; };
 		43F8DE98234FF74900ABEEEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DE97234FF74900ABEEEE /* AppDelegate.swift */; };
 		43F8DE9A234FF74900ABEEEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */; };
 		43F8DE9F234FF74900ABEEEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43F8DE9D234FF74900ABEEEE /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 /* Begin PBXFileReference section */
 		0CCA554623669852004C8E32 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellMateria.swift; sourceTree = "<group>"; };
+		43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCategoria.swift; sourceTree = "<group>"; };
+		43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellActividad.swift; sourceTree = "<group>"; };
 		43F8DE94234FF74900ABEEEE /* GetMyGrade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetMyGrade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43F8DE97234FF74900ABEEEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +82,9 @@
 		43F8DE96234FF74900ABEEEE /* GetMyGrade */ = {
 			isa = PBXGroup;
 			children = (
+				43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */,
 				43F8DE97234FF74900ABEEEE /* AppDelegate.swift */,
+				43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */,
 				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
 				43F8DE9D234FF74900ABEEEE /* Main.storyboard */,
 				43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */,
@@ -174,11 +180,13 @@
 				43F8DEAE234FF8F000ABEEEE /* TableViewControllerMateria.swift in Sources */,
 				43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */,
 				43A0238023821A85004FD438 /* UITableViewCellMateria.swift in Sources */,
+				43E68AE0238B20330044A2CE /* TableViewCellActividad.swift in Sources */,
 				43F8DEB2234FF92F00ABEEEE /* TableViewControllerActividad.swift in Sources */,
 				0CCA554723669852004C8E32 /* StartView.swift in Sources */,
 				A2FF36FA2371D4AD00F34C67 /* ViewControllerAnalisis.swift in Sources */,
 				C11407F92352B83700C11473 /* Categoria.swift in Sources */,
 				43F8DE98234FF74900ABEEEE /* AppDelegate.swift in Sources */,
+				43E68ADE238B15840044A2CE /* TableViewCellCategoria.swift in Sources */,
 				43F8DE9A234FF74900ABEEEE /* SceneDelegate.swift in Sources */,
 				43F8DEB0234FF91B00ABEEEE /* TableViewControllerCategoria.swift in Sources */,
 				43F8DEB6234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift in Sources */,
