@@ -52,7 +52,7 @@ class ViewControllerAgregaActividad: UIViewController {
         alertController.addAction(cancelar)
         present(alertController,animated: true,completion: nil)
         }
-        if nom != "", cal != nil , cal!<100
+        if nom != "", cal != nil , cal!<=100
         {
            
             let number = Int.random(in: 0 ... 1000)
