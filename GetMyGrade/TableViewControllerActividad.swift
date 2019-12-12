@@ -11,6 +11,7 @@ import UIKit
 
 class TableViewControllerActividad: UITableViewController, protocoloAgregaActividad {
     func guardaActividades() {
+        
         do {
            let data = try PropertyListEncoder().encode(listaActividades)
            try data.write(to: dataFileUrl())
@@ -64,9 +65,9 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             while x < self.listaActividades.count{
                 
                 if self.listaActividades[x].id == sender.tag {
-
+                   
                     self.listaActividades[x].calificacion = pond_Nueva!
-                    
+                    print(self.listaActividades[x].calificacion)
                 }
             
                 x += 1
@@ -88,7 +89,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             
     }
     
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -113,6 +114,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         
         
     }
+    
     
     
     

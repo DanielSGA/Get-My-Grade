@@ -42,7 +42,7 @@ class ViewControllerAgregaActividad: UIViewController {
         }
             let aceptar = UIAlertAction(title: "Aceptar", style: .default){
                 (action) in
-                let number = Int.random(in: 0 ... 1000)
+                let number = Int.random(in: 0 ... 10000)
                 let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: self.idCategoria)
                 self.delegado.agregaActividad(act: unAct)
                 self.delegado.guardaActividades()

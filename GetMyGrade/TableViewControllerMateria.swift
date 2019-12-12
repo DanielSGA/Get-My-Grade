@@ -105,7 +105,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
                 sumaTotal += Double(listaCategorias[j].ponderacion)
                 suma += Double(listaCategorias[j].calificacion) * (Double(listaCategorias[j].ponderacion)/100)
                 cont += 1
-                print(suma)
+                
                 
                 }
                

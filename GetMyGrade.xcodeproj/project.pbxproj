@@ -82,8 +82,8 @@
 		43F8DE96234FF74900ABEEEE /* GetMyGrade */ = {
 			isa = PBXGroup;
 			children = (
-				43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */,
 				43F8DE97234FF74900ABEEEE /* AppDelegate.swift */,
+				43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */,
 				43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */,
 				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
 				43F8DE9D234FF74900ABEEEE /* Main.storyboard */,
