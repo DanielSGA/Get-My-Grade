@@ -152,6 +152,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         
         actualizarCalif()
         actualizarCategorias()
+        print(listaCategorias.count)
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -197,6 +198,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         }
         
     }
+    
 
     // MARK: - Table view data source
 

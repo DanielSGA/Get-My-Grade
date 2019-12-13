@@ -14,7 +14,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         
         do {
            let data = try PropertyListEncoder().encode(listaActividades)
-           try data.write(to: dataFileUrl())
+           try data.write(to: dataFileUrl3())
         }
         catch {
            print("Save Failed")
@@ -42,7 +42,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     var listaActividades = [Actividad]()
     var listaActividadesMostrar = [Actividad]()
     
-    func dataFileUrl() -> URL {
+    func dataFileUrl3() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent("Actividades.plist")
         return pathArchivo
@@ -50,7 +50,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     
     
     @IBAction func editar(_ sender: UIButton) {
-        
+     
         let alert = UIAlertController(title: "Editar Calificación", message: nil, preferredStyle: UIAlertController.Style.alert)
         
         alert.addTextField(configurationHandler: { (textField) in
@@ -60,14 +60,14 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         
         let submitAction = UIAlertAction(title: "Aceptar", style: .default) { [unowned alert] _ in
             let pond_Nueva = Int(alert.textFields![0].text!)
-            
+        
         var x = 0
             while x < self.listaActividades.count{
                 
                 if self.listaActividades[x].id == sender.tag {
                    
                     self.listaActividades[x].calificacion = pond_Nueva!
-                    print(self.listaActividades[x].calificacion)
+                    
                 }
             
                 x += 1
@@ -75,7 +75,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             
             self.guardaActividades()
             self.tableView.reloadData()
-
+            self.checar()
             
             
             
@@ -89,7 +89,18 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             
     }
     
-  
+    func checar()
+    {
+        var x = 0
+        while x < listaActividades.count{
+            
+         print(listaActividades[x].nombre)
+        print(listaActividades[x].calificacion)
+            
+        
+            x += 1
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -102,21 +113,15 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         self.title = nomMateria + " - " + nomCategoria
         
         do {
-            let data = try Data.init(contentsOf: dataFileUrl())
+            let data = try Data.init(contentsOf: dataFileUrl3())
             listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
         }
         catch {
             print("Error reading or decoding file")
         }
+        checar()
         actualizarActividades()
-        
-     
-        
-        
     }
-    
-    
-    
     
     func actualizarActividades () -> Void
        {
@@ -195,23 +200,6 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             i+=1
         }
     }
-    
-
-    
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        
-        let temp = listaActividades[fromIndexPath.row]
-        listaActividades[fromIndexPath.row] = listaActividades[to.row]
-        listaActividades[to.row] = temp
-        
-        guardaActividades()
-        
-
-    }
-    
-
-    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.

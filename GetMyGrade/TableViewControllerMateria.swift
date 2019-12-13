@@ -19,6 +19,25 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
            print("Save Failed")
         }
     }
+    func guardaCategorias() {
+        do {
+           let data = try PropertyListEncoder().encode(listaCategorias)
+           try data.write(to: dataFileUrl2())
+        }
+        catch {
+           print("Save Failed")
+        }
+    }
+    func guardaActividades() {
+        
+        do {
+           let data = try PropertyListEncoder().encode(listaActividades)
+           try data.write(to: dataFileUrl3())
+        }
+        catch {
+           print("Save Failed")
+        }
+    }
     
     func agregaMateria(mat: Materia) {
         listaMaterias.append(mat)
@@ -27,7 +46,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     
     var listaMaterias = [Materia]()
     var listaCategorias = [Categoria]()
-    
+    var listaActividades = [Actividad]()
     
     
     func dataFileUrl() -> URL {
@@ -39,8 +58,12 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
            let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
            let pathArchivo = url.appendingPathComponent("Categorias.plist")
            return pathArchivo
-       }
-    
+    }
+    func dataFileUrl3() -> URL {
+        let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+        let pathArchivo = url.appendingPathComponent("Actividades.plist")
+        return pathArchivo
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,6 +89,13 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         catch {
             print("Error reading or decoding file")
         }
+        do {
+                   let data = try Data.init(contentsOf: dataFileUrl3())
+                   listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
+               }
+               catch {
+                   print("Error reading or decoding file")
+               }
         
         actualizarCalif()
     }
@@ -182,17 +212,30 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            borrarCategorias(idCat: listaMaterias[indexPath.row].id)
             listaMaterias.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
-        
+        guardaCategorias()
         guardaMaterias()
         
+        
     }
-    
+    func borrarCategorias(idCat:Int)
+    {
+        var i=0
+        while(i<listaCategorias.count)
+        {
+            if(idCat==listaCategorias[i].idMateria)
+            {
+               listaCategorias.remove(at: i)
+            }
+            i+=1
+        }
+    }
 
     
     // Override to support rearranging the table view.
