@@ -156,15 +156,6 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     override var shouldAutorotate: Bool {
     return false
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     // MARK: - Table view data source
 
@@ -206,7 +197,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         return true
     }
     
-
+// MARK: - Borrar
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -221,7 +212,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         }
         guardaCategorias()
         guardaMaterias()
-        
+        //guardaActividades()
         
     }
     func borrarCategorias(idCat:Int)
@@ -229,36 +220,28 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         var i=0
         while(i<listaCategorias.count)
         {
+        
             if(idCat==listaCategorias[i].idMateria)
             {
+               //borrarActividad(idCat: listaCategorias[i].id)
                listaCategorias.remove(at: i)
             }
             i+=1
         }
     }
 
-    
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        
-        let temp = listaMaterias[fromIndexPath.row]
-        listaMaterias[fromIndexPath.row] = listaMaterias[to.row]
-        listaMaterias[to.row] = temp
-        
-        guardaMaterias()
-
+    func borrarActividad(idCat:Int)
+    {
+        var j=0
+        while(j<listaActividades.count)
+        {
+            if(idCat==listaActividades[j].idCategoria)
+            {
+                listaActividades.remove(at: j)
+            }
+            j+=1
+        }
     }
-    
-
-    
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

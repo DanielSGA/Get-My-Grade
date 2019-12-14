@@ -19,7 +19,16 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
            print("Save Failed")
         }
     }
-    
+    func guardaActividades() {
+          
+          do {
+             let data = try PropertyListEncoder().encode(listaActividades)
+             try data.write(to: dataFileUrl2())
+          }
+          catch {
+             print("Save Failed")
+          }
+      }
     func agregaCategoria(cat: Categoria) {
         listaCategorias.append(cat)
         listaCategoriasMostrar.append(cat)
@@ -248,13 +257,14 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         if editingStyle == .delete {
             // Delete the row from the data source
             borrarCategorias(idCat: listaCategoriasMostrar[indexPath.row].id)
+            borrarActividades(idCat: listaCategoriasMostrar[indexPath.row].id)
             listaCategoriasMostrar.remove(at: indexPath.row)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
-        
+        guardaActividades()
         guardaCategorias()
     }
     func borrarCategorias(idCat:Int)
@@ -269,7 +279,18 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             i+=1
         }
     }
-
+    func borrarActividades(idCat:Int)
+      {
+          var i=0
+          while(i<listaActividades.count)
+          {
+              if(idCat==listaActividades[i].idCategoria)
+              {
+                 listaActividades.remove(at: i)
+              }
+              i+=1
+          }
+      }
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

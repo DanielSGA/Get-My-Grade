@@ -75,7 +75,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             
             self.guardaActividades()
             self.tableView.reloadData()
-            self.checar()
+            
             
             
             
@@ -89,18 +89,6 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             
     }
     
-    func checar()
-    {
-        var x = 0
-        while x < listaActividades.count{
-            
-         print(listaActividades[x].nombre)
-        print(listaActividades[x].calificacion)
-            
-        
-            x += 1
-        }
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,7 +107,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         catch {
             print("Error reading or decoding file")
         }
-        checar()
+        print(listaActividades.count)
         actualizarActividades()
     }
     
