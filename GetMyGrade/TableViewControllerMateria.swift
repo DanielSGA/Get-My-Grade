@@ -98,6 +98,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
                }
         
         actualizarCalif()
+       
     }
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
@@ -115,6 +116,13 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         catch {
             print("Error reading or decoding file")
         }
+        do {
+                        let data = try Data.init(contentsOf: dataFileUrl3())
+                        listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
+            }
+            catch {
+                print("Error reading or decoding file")
+                    }
           actualizarCalif()
           guardaMaterias()
           tableView.reloadData()
@@ -203,27 +211,26 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            borrarCategorias(idCat: listaMaterias[indexPath.row].id)
+            borrarCategorias(idMat: listaMaterias[indexPath.row].id)
             listaMaterias.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+        guardaActividades()
         guardaCategorias()
         guardaMaterias()
-        //guardaActividades()
-        
     }
-    func borrarCategorias(idCat:Int)
+    func borrarCategorias(idMat:Int)
     {
         var i=0
         while(i<listaCategorias.count)
         {
         
-            if(idCat==listaCategorias[i].idMateria)
+            if(idMat==listaCategorias[i].idMateria)
             {
-               //borrarActividad(idCat: listaCategorias[i].id)
+               borrarActividad(idCat: listaCategorias[i].id)
                listaCategorias.remove(at: i)
             }
             i+=1
@@ -232,6 +239,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
 
     func borrarActividad(idCat:Int)
     {
+       
         var j=0
         while(j<listaActividades.count)
         {
@@ -242,12 +250,22 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
             j+=1
         }
     }
+    func resetear()
+    {
+        listaMaterias.removeAll()
+        listaCategorias.removeAll()
+        listaActividades.removeAll()
+        guardaActividades()
+        guardaCategorias()
+        guardaMaterias()
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="segue_agrega_materia")
         {
+            //resetear()
             let viewAgregar = segue.destination as! ViewControllerAgregaMateria
             viewAgregar.delegado = self
         }
