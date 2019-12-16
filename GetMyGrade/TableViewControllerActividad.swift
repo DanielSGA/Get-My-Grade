@@ -10,6 +10,13 @@ import UIKit
 
 
 class TableViewControllerActividad: UITableViewController, protocoloAgregaActividad {
+     // MARK: - Variables
+    var idCategoria: Int!
+    var nomMateria: String!
+    var nomCategoria: String!
+    var listaActividades = [Actividad]()
+    var listaActividadesMostrar = [Actividad]()
+     // MARK: - Guardar archivos
     func guardaActividades() {
         
         do {
@@ -20,35 +27,40 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
            print("Save Failed")
         }
     }
-    
-    
-    
     func agregaActividad(act: Actividad) {
         listaActividades.append(act)
         listaActividadesMostrar.append(act)
-        
         tableView.reloadData()
 
     }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.landscape
-    }
-    override var shouldAutorotate: Bool {
-    return false
-    }
-    var idCategoria: Int!
-    var nomMateria: String!
-    var nomCategoria: String!
-    var listaActividades = [Actividad]()
-    var listaActividadesMostrar = [Actividad]()
-    
+     // MARK: - DataFileUrl
     func dataFileUrl3() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent("Actividades.plist")
         return pathArchivo
     }
-    
-    
+    // MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        editButtonItem.title = "Borrar"
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.title = nomMateria + " - " + nomCategoria
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl3())
+            listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+        actualizarActividades()
+    }
+    // MARK: - Editar calificacion
     @IBAction func editar(_ sender: UIButton) {
      
         let alert = UIAlertController(title: "Editar Calificación", message: nil, preferredStyle: UIAlertController.Style.alert)
@@ -73,44 +85,14 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             }
             self.guardaActividades()
             self.tableView.reloadData()
-            
-            
-            
-            
         }
             
-            alert.addAction(submitAction)
-        
+        alert.addAction(submitAction)
         self.present(alert, animated: true, completion: nil)
-        
-        
             
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        editButtonItem.title = "Borrar"
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.title = nomMateria + " - " + nomCategoria
-        
-        do {
-            let data = try Data.init(contentsOf: dataFileUrl3())
-            listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
-        }
-        catch {
-            print("Error reading or decoding file")
-        }
-        actualizarActividades()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
+    // MARK: - Agregar a arreglo temporal
     func actualizarActividades () -> Void
        {
            var i = 0
@@ -150,17 +132,12 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         return cell
         
     }
-    
-
-    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    
-
-    
+    // MARK: - Borrar
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -188,14 +165,6 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             i+=1
         }
     }
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -207,6 +176,12 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             viewAgregar.idCategoria = idCategoria
         }
     }
-    
+    // MARK: - Restringir rotacion
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+    return false
+    }
 
 }

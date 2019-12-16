@@ -12,21 +12,19 @@ protocol protocoloAgregaCategoria{
     func guardaCategorias()->Void
 }
 class ViewControllerAgregaCategoria: UIViewController {
-
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var tfNombre: UITextField!
-    @IBOutlet weak var tfPorcentaje: UITextField!
+    // MARK: - Variables y Outlets
     var delegado: protocoloAgregaCategoria!
     var idMateria : Int!
     var scrollOffset : CGFloat = 0
     var distance : CGFloat = 0
     var listaCategorias = [Categoria]()
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tfNombre: UITextField!
+    @IBOutlet weak var tfPorcentaje: UITextField!
     @IBAction func quitaTeclado() {
         view.endEditing(true)
     }
-    
-    
-    
+    // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         do {
@@ -37,11 +35,13 @@ class ViewControllerAgregaCategoria: UIViewController {
             print("Error reading or decoding file")
         }
     }
+    // MARK: - DataFileUrl
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent("Categorias.plist")
         return pathArchivo
     }
+// MARK: -Acumulado de Porcentaje
     func calcularPorc() -> Int {
         var acum = 0
         var i = 0
@@ -55,6 +55,7 @@ class ViewControllerAgregaCategoria: UIViewController {
         }
         return acum
     }
+// MARK: - Guardar datos escritos
     @IBAction func guardar(_ sender: UIButton) {
         let nom = tfNombre.text
         let porc = Int(tfPorcentaje.text!)
@@ -86,13 +87,7 @@ class ViewControllerAgregaCategoria: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.landscape
-    }
-    override var shouldAutorotate: Bool {
-    return false
-    }
+   // MARK: -Esconder Teclado
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -141,5 +136,11 @@ class ViewControllerAgregaCategoria: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    // MARK: - Restringir rotacion
+      override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+      return UIInterfaceOrientationMask.landscape
+      }
+      override var shouldAutorotate: Bool {
+      return false
+      }
 }

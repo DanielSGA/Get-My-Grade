@@ -9,6 +9,11 @@
 import UIKit
 
 class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria {
+    // MARK: - Variables
+    var listaMaterias = [Materia]()
+    var listaCategorias = [Categoria]()
+    var listaActividades = [Actividad]()
+    // MARK: - Guardar archivos
     func guardaMaterias() {
         actualizarCalif()
         do {
@@ -44,10 +49,8 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         tableView.reloadData()
     }
     
-    var listaMaterias = [Materia]()
-    var listaCategorias = [Categoria]()
-    var listaActividades = [Actividad]()
-    
+  
+    // MARK: - DataFileUrls
     
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -64,6 +67,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         let pathArchivo = url.appendingPathComponent("Actividades.plist")
         return pathArchivo
     }
+    // MARK: - viewDidload and will
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -127,6 +131,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
           guardaMaterias()
           tableView.reloadData()
       }
+    // MARK: - Funcion para actualizar calificacion
    func actualizarCalif() {
        var i = 0
        var j = 0
@@ -158,12 +163,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
      
        
    }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.landscape
-    }
-    override var shouldAutorotate: Bool {
-    return false
-    }
+   
 
     // MARK: - Table view data source
 
@@ -283,5 +283,11 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
            
         }
     }
-   
+   // MARK: - Restringir rotacion
+      override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+      return UIInterfaceOrientationMask.landscape
+      }
+      override var shouldAutorotate: Bool {
+      return false
+      }
 }

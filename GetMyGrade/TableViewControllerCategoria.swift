@@ -9,6 +9,13 @@
 import UIKit
 
 class TableViewControllerCategoria: UITableViewController, protocoloAgregaCategoria {
+    // MARK: - Variables
+    var idMateria: Int!
+    var nomMateria: String!
+    var listaCategorias = [Categoria]()
+    var listaActividades = [Actividad]()
+    var listaCategoriasMostrar = [Categoria]()
+    // MARK: - Guardar archivos
     func guardaCategorias() {
         actualizarCalif()
         do {
@@ -36,87 +43,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         tableView.reloadData()
         
     }
-    var idMateria: Int!
-    var nomMateria: String!
-    var listaCategorias = [Categoria]()
-    var listaActividades = [Actividad]()
-    var listaCategoriasMostrar = [Categoria]()
-    
-    
-    
-    @IBAction func Editar(_ sender: UIButton) {
-        
-        let alert = UIAlertController(title: "Editar Porcentaje", message: nil, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addTextField(configurationHandler: { (textField) in
-        textField.placeholder = "Escribe nuevo porcentaje"})
-        
-        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
-        
-        let submitAction = UIAlertAction(title: "Aceptar", style: .default) { [unowned alert] _ in
-            let pond_Nueva = Int(alert.textFields![0].text!)
-            
-        var x = 0
-            while x < self.listaCategorias.count{
-                
-                if self.listaCategorias[x].id == sender.tag {
-                    self.listaCategorias[x].ponderacion = pond_Nueva!
-                }
-            
-                x += 1
-            }
-            
-            self.guardaCategorias()
-            self.tableView.reloadData()
-
-            
-            
-            
-        }
-            
-            alert.addAction(submitAction)
-        
-        self.present(alert, animated: true, completion: nil)
-        
-        
-    }
-    
-    
-    func actualizarCalif() {
-        var i = 0
-        var j = 0
-        var suma = 0
-        var cont = 0
-        while (listaCategorias.count > i){
-            j = 0
-            suma = 0
-            cont = 0
-           	 while (listaActividades.count > j) {
-                
-                if (listaCategorias[i].id == listaActividades[j].idCategoria){
-                    suma += listaActividades[j].calificacion
-                    cont += 1
-                }
-                
-                j += 1
-            }
-            
-            if cont != 0 {
-                suma = suma / cont
-            }
-            listaCategorias[i].calificacion = suma
-            
-            i += 1
-        }
-     
-        
-    }
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.landscape
-    }
-    override var shouldAutorotate: Bool {
-    return false
-    }
+    // MARK: - DataFileUrls
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent("Categorias.plist")
@@ -128,8 +55,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         let pathArchivo = url.appendingPathComponent("Actividades.plist")
         return pathArchivo
     }
-    
-    
+    // MARK: - viewDidload and will
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -185,7 +111,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         tableView.reloadData()
     }
     
-    
+    // MARK: - Agregar a arreglo temporal
     func actualizarCategorias () -> Void
     {
        
@@ -205,8 +131,66 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         }
         
     }
+    // MARK: - Editar ponderacion
+    @IBAction func Editar(_ sender: UIButton) {
+        
+        let alert = UIAlertController(title: "Editar Porcentaje", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addTextField(configurationHandler: { (textField) in
+        textField.placeholder = "Escribe nuevo porcentaje"})
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
+        
+        let submitAction = UIAlertAction(title: "Aceptar", style: .default) { [unowned alert] _ in
+            let pond_Nueva = Int(alert.textFields![0].text!)
+            
+        var x = 0
+            while x < self.listaCategorias.count{
+                
+                if self.listaCategorias[x].id == sender.tag {
+                    self.listaCategorias[x].ponderacion = pond_Nueva!
+                }
+            
+                x += 1
+            }
+            
+            self.guardaCategorias()
+            self.tableView.reloadData()
+        }
+            
+        alert.addAction(submitAction)
+        self.present(alert, animated: true, completion: nil)
+    }
     
-
+    // MARK: - Actualizar calificacion
+    func actualizarCalif() {
+        var i = 0
+        var j = 0
+        var suma = 0
+        var cont = 0
+        while (listaCategorias.count > i){
+            j = 0
+            suma = 0
+            cont = 0
+           	 while (listaActividades.count > j) {
+                
+                if (listaCategorias[i].id == listaActividades[j].idCategoria){
+                    suma += listaActividades[j].calificacion
+                    cont += 1
+                }
+                
+                j += 1
+            }
+            
+            if cont != 0 {
+                suma = suma / cont
+            }
+            listaCategorias[i].calificacion = suma
+            
+            i += 1
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -249,7 +233,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     }
     
 
-    
+    // MARK: - Borrar
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -289,29 +273,6 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
               i+=1
           }
       }
-    
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        
-        let temp = listaCategorias[fromIndexPath.row]
-        listaCategorias[fromIndexPath.row] = listaCategorias[to.row]
-        listaCategorias[to.row] = temp
-        
-        guardaCategorias()
-        
-
-    }
-    
-
-    
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -331,7 +292,11 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             vistaActividad.nomCategoria = listaCategoriasMostrar[indexPath.row].nombre
         }
     }
-   
-    
-
+   // MARK: - Restringir rotacion
+      override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+      return UIInterfaceOrientationMask.landscape
+      }
+      override var shouldAutorotate: Bool {
+      return false
+      }
 }

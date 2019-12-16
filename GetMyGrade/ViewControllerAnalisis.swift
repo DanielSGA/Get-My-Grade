@@ -9,28 +9,27 @@
 import UIKit
 
 class ViewControllerAnalisis: UIViewController {
-    
+     // MARK: - Variables y Outlets
     var listaMaterias = [Materia]()
     var matAnalisis : Materia!
-    
+    var idMat : Int!
+    var scrollOffset : CGFloat = 0
+    var distance : CGFloat = 0
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var lbPrueba: UILabel!
     @IBOutlet weak var lbCalif: UILabel!
     @IBOutlet weak var tfMeta: UITextField!
     @IBOutlet weak var lbAnalisis: UILabel!
     @IBOutlet weak var lbAnalisis2: UILabel!
-    
     @IBOutlet weak var lbAnalisis3: UILabel!
-    var idMat : Int!
-    var scrollOffset : CGFloat = 0
-    var distance : CGFloat = 0
+      // MARK: - DataFileUrl
     func dataFileUrl() -> URL {
         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
         let pathArchivo = url.appendingPathComponent("Materias.plist")
         return pathArchivo
     }
     
-    
+     // MARK: -viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -61,16 +60,10 @@ class ViewControllerAnalisis: UIViewController {
         lbAnalisis3.isHidden = true
         print(matAnalisis.calificacion)
     }
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-    return UIInterfaceOrientationMask.landscape
-    }
-    override var shouldAutorotate: Bool {
-    return false
-    }
-    @IBAction func HacerAnalisis(_ sender: UIButton) {
+ // MARK: -Hacer analisis
+@IBAction func HacerAnalisis(_ sender: UIButton) {
         
-        let meta = Int(tfMeta.text!)
+    let meta = Int(tfMeta.text!)
         
         if meta == 0 || meta == nil {
             lbAnalisis.isHidden = true
@@ -102,16 +95,10 @@ class ViewControllerAnalisis: UIViewController {
                     let prom = (puntosParaMeta * 100)/puntosRestantes
                     lbAnalisis3.text = "En el resto de las actividades de la materia, necesitas obtener un promedio de " + String(prom) + " para llegar a tu meta."
                 }
-                
-                
             }
-            
         }
-        
-        
-        
     }
-    
+     // MARK: -Esconder Teclado
     @IBAction func quitaTeclado() {
         view.endEditing(true)
     }
@@ -165,5 +152,11 @@ class ViewControllerAnalisis: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    // MARK: - Restringir rotacion
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+    return false
+    }
 }

@@ -7,31 +7,32 @@
 //
 
 import UIKit
+// MARK: - protocol
 protocol protocoloAgregaActividad{
 func agregaActividad(act:Actividad)->Void
 func guardaActividades()->Void
 }
 class ViewControllerAgregaActividad: UIViewController {
-
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var tfNombre: UITextField!
-    @IBOutlet weak var tfCalificacion: UITextField!
+    // MARK: - Variables y Outlets
     var delegado: protocoloAgregaActividad!
     var idCategoria: Int!
     var scrollOffset : CGFloat = 0
     var distance : CGFloat = 0
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var tfNombre: UITextField!
+    @IBOutlet weak var tfCalificacion: UITextField!
     @IBAction func quitaTeclado() {
         view.endEditing(true)
     }
     
-    
-    override func viewDidLoad() {
+// MARK: - viewDidLoad
+override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func guardar(_ sender: UIButton) {
+// MARK: - Guardar datos escritos
+@IBAction func guardar(_ sender: UIButton) {
         let nom = tfNombre.text
         let cal = Int(tfCalificacion.text!)
         if(cal!>100)
@@ -62,13 +63,7 @@ class ViewControllerAgregaActividad: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
-    
-override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-return UIInterfaceOrientationMask.landscape
-}
-override var shouldAutorotate: Bool {
-return false
-}
+     // MARK: -Esconder Teclado
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
@@ -117,5 +112,11 @@ return false
         // Pass the selected object to the new view controller.
     }
     */
-
+     // MARK: - Restringir rotacion
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool {
+    return false
+    }
 }
