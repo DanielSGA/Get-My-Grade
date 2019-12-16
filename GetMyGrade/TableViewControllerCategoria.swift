@@ -133,7 +133,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     }
     // MARK: - Editar ponderacion
     @IBAction func Editar(_ sender: UIButton) {
-        
+        setEditing(false, animated: true)
         let alert = UIAlertController(title: "Editar Porcentaje", message: nil, preferredStyle: UIAlertController.Style.alert)
         
         alert.addTextField(configurationHandler: { (textField) in
@@ -282,6 +282,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             let viewAgregar = segue.destination as! ViewControllerAgregaCategoria
             viewAgregar.delegado = self
             viewAgregar.idMateria = idMateria
+            setEditing(false, animated: true)
         }
         else
         {

@@ -260,7 +260,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         guardaMaterias()
     }
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier=="segue_agrega_materia")
@@ -273,6 +273,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
             let vistaAnalisis = segue.destination as! ViewControllerAnalisis
             let bt = sender as! UIButton
             vistaAnalisis.idMat = bt.tag
+            setEditing(false, animated: true)
         }
         else
         {

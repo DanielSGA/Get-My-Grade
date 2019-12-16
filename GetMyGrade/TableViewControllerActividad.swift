@@ -62,7 +62,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     }
     // MARK: - Editar calificacion
     @IBAction func editar(_ sender: UIButton) {
-     
+        setEditing(false, animated: true)
         let alert = UIAlertController(title: "Editar Calificación", message: nil, preferredStyle: UIAlertController.Style.alert)
         
         alert.addTextField(configurationHandler: { (textField) in
@@ -174,6 +174,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             let viewAgregar = segue.destination as! ViewControllerAgregaActividad
             viewAgregar.delegado = self
             viewAgregar.idCategoria = idCategoria
+            setEditing(false, animated: true)
         }
     }
     // MARK: - Restringir rotacion
