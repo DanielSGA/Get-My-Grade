@@ -65,14 +65,12 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
             while x < self.listaActividades.count{
                 
                 if self.listaActividades[x].id == sender.tag {
-                   
+                   print("entro")
                     self.listaActividades[x].calificacion = pond_Nueva!
-                    
                 }
             
                 x += 1
             }
-            
             self.guardaActividades()
             self.tableView.reloadData()
             
@@ -107,10 +105,12 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         catch {
             print("Error reading or decoding file")
         }
-        print(listaActividades.count)
         actualizarActividades()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     func actualizarActividades () -> Void
        {
            var i = 0
@@ -144,7 +144,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         cell.lbNombre.text=listaActividadesMostrar[indexPath.row].nombre
         cell.lbCalif.text = String(listaActividadesMostrar[indexPath.row].calificacion)
         
-        cell.btEditar.tag = listaActividades[indexPath.row].id
+        cell.btEditar.tag = listaActividadesMostrar[indexPath.row].id
 
         
         return cell

@@ -60,9 +60,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             while x < self.listaCategorias.count{
                 
                 if self.listaCategorias[x].id == sender.tag {
-                    print(self.listaCategorias[x].ponderacion)
                     self.listaCategorias[x].ponderacion = pond_Nueva!
-                    
                 }
             
                 x += 1
@@ -161,7 +159,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         
         actualizarCalif()
         actualizarCategorias()
-        print(listaCategorias.count)
+        
         
     }
     override func viewWillAppear(_ animated: Bool) {
