@@ -32,7 +32,7 @@ class ViewControllerAnalisis: UIViewController {
      // MARK: -viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         self.addDoneButtonOnKeyboard()
         // Do any additional setup after loading the view.
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
@@ -98,6 +98,44 @@ class ViewControllerAnalisis: UIViewController {
             }
         }
     }
+    @objc func analisis()->Void
+    {
+       let meta = Int(tfMeta.text!)
+        
+        if meta == 0 || meta == nil {
+            lbAnalisis.isHidden = true
+            lbAnalisis2.isHidden = true
+            lbAnalisis3.isHidden = true
+        }
+        else{
+            lbAnalisis.isHidden = false
+            lbAnalisis.text = "Actualmente llevas una calificacion de " + String(matAnalisis.calificacion)
+            lbAnalisis2.isHidden = false
+            lbAnalisis2.text = "Y buscas llegar a una calificacion de " + String(meta!)
+            lbAnalisis3.isHidden = false
+            
+            if meta! <= matAnalisis.calificacion {
+                
+                lbAnalisis3.text = "Felicidades! Ya alcanzaste tu meta!"
+            }
+                
+            else {
+                
+                let puntosParaMeta = meta! - matAnalisis.calificacion
+                let puntosRestantes = 100 - matAnalisis.ponderacion
+                
+                
+                if puntosRestantes < puntosParaMeta {
+                    lbAnalisis3.text = "Lo sentimos mucho, con los puntos que quedan ya no podras alcanzar tu meta"
+                }
+                else{
+                    let prom = (puntosParaMeta * 100)/puntosRestantes
+                    lbAnalisis3.text = "En el resto de las actividades de la materia, necesitas obtener un promedio de " + String(prom) + " para llegar a tu meta."
+                }
+            }
+        }
+          self.view.endEditing(true)
+    }
      // MARK: -Esconder Teclado
     @IBAction func quitaTeclado() {
         view.endEditing(true)
@@ -142,7 +180,29 @@ class ViewControllerAnalisis: UIViewController {
             distance = 0
             scrollView.isScrollEnabled = true
     }
+    func addDoneButtonOnKeyboard() {
+                let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+                doneToolbar.barStyle       = UIBarStyle.default
+        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(analisis))
 
+                var items = [UIBarButtonItem]()
+                items.append(flexSpace)
+                items.append(done)
+
+                doneToolbar.items = items
+                doneToolbar.sizeToFit()
+
+                self.tfMeta.inputAccessoryView = doneToolbar
+            }
+
+        @objc func doneButtonAction() {
+                self.tfMeta.resignFirstResponder()
+                /* Or:
+                self.view.endEditing(true);
+                */
+            }
+    
     /*
     // MARK: - Navigation
 
