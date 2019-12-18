@@ -11,7 +11,7 @@ protocol protocoloAgregaMateria{
     func agregaMateria(mat:Materia)->Void
     func guardaMaterias()->Void
 }
-class ViewControllerAgregaMateria: UIViewController {
+class ViewControllerAgregaMateria: UIViewController{
     // MARK: - Variables y Outlets
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tfNombre: UITextField!
@@ -24,6 +24,7 @@ class ViewControllerAgregaMateria: UIViewController {
      // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
          tfNombre.addTarget(self, action: #selector(MyTextFielAction)
                                , for: UIControl.Event.primaryActionTriggered)
     // Do any additional setup after loading the view.

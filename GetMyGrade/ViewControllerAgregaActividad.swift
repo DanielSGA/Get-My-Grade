@@ -12,7 +12,7 @@ protocol protocoloAgregaActividad{
 func agregaActividad(act:Actividad)->Void
 func guardaActividades()->Void
 }
-class ViewControllerAgregaActividad: UIViewController {
+class ViewControllerAgregaActividad: UIViewController,UITextFieldDelegate {
     // MARK: - Variables y Outlets
     var delegado: protocoloAgregaActividad!
     var idCategoria: Int!
@@ -27,8 +27,10 @@ class ViewControllerAgregaActividad: UIViewController {
     
 // MARK: - viewDidLoad
 override func viewDidLoad() {
-        super.viewDidLoad()
-
+    super.viewDidLoad()
+    self.addDoneButtonOnKeyboard()
+    self.tfNombre.delegate = self
+    self.tfCalificacion.delegate = self
         // Do any additional setup after loading the view.
     }
 // MARK: - Guardar datos escritos
@@ -48,6 +50,41 @@ override func viewDidLoad() {
                 self.delegado.agregaActividad(act: unAct)
                 self.delegado.guardaActividades()
                 self.navigationController?.popViewController(animated: true)
+            }
+        alertController.addAction(aceptar)
+        alertController.addAction(cancelar)
+        present(alertController,animated: true,completion: nil)
+        }
+        if nom != "", cal != nil , cal!<=100
+        {
+           
+            let number = Int.random(in: 0 ... 1000)
+            let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: idCategoria)
+            delegado.agregaActividad(act: unAct)
+            delegado.guardaActividades()
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    // MARK: - Done del teclado
+    @objc func analisis()->Void
+    {
+        let nom = tfNombre.text
+        let cal = Int(tfCalificacion.text!)
+        if(cal!>100)
+        {
+        let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
+        let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
+                    
+        }
+            let aceptar = UIAlertAction(title: "Aceptar", style: .default){
+                (action) in
+               
+                let number = Int.random(in: 0 ... 10000)
+                let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: self.idCategoria)
+                self.delegado.agregaActividad(act: unAct)
+                self.delegado.guardaActividades()
+                self.navigationController?.popViewController(animated: true)
+                
             }
         alertController.addAction(aceptar)
         alertController.addAction(cancelar)
@@ -103,6 +140,41 @@ override func viewDidLoad() {
             distance = 0
             scrollView.isScrollEnabled = true
     }
+    // MARK: - Done y Next
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+         self.switchBasedNextTextField(textField)
+         return true
+     }
+     private func switchBasedNextTextField(_ textField: UITextField) {
+         switch textField {
+         case self.tfNombre:
+             self.tfCalificacion.becomeFirstResponder()
+         default:
+             self.tfNombre.resignFirstResponder()
+         }
+     }
+    func addDoneButtonOnKeyboard() {
+            let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+            doneToolbar.barStyle       = UIBarStyle.default
+    let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+    let done: UIBarButtonItem  = UIBarButtonItem(title: "done", style: UIBarButtonItem.Style.done, target: self, action: #selector(analisis))
+
+            var items = [UIBarButtonItem]()
+            items.append(flexSpace)
+            items.append(done)
+
+            doneToolbar.items = items
+            doneToolbar.sizeToFit()
+
+            self.tfCalificacion.inputAccessoryView = doneToolbar
+        }
+
+    @objc func doneButtonAction() {
+            self.tfCalificacion.resignFirstResponder()
+         
+            //self.view.endEditing(true);
+            
+        }
     /*
     // MARK: - Navigation
 

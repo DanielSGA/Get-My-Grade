@@ -98,6 +98,7 @@ class ViewControllerAnalisis: UIViewController {
             }
         }
     }
+     // MARK: - Done del teclado
     @objc func analisis()->Void
     {
        let meta = Int(tfMeta.text!)
@@ -134,7 +135,7 @@ class ViewControllerAnalisis: UIViewController {
                 }
             }
         }
-          self.view.endEditing(true)
+         
     }
      // MARK: -Esconder Teclado
     @IBAction func quitaTeclado() {
@@ -180,6 +181,7 @@ class ViewControllerAnalisis: UIViewController {
             distance = 0
             scrollView.isScrollEnabled = true
     }
+     // MARK: - Done
     func addDoneButtonOnKeyboard() {
                 let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
                 doneToolbar.barStyle       = UIBarStyle.default

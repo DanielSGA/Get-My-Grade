@@ -11,7 +11,7 @@ protocol protocoloAgregaCategoria{
     func agregaCategoria(cat:Categoria)->Void
     func guardaCategorias()->Void
 }
-class ViewControllerAgregaCategoria: UIViewController {
+class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
     // MARK: - Variables y Outlets
     var delegado: protocoloAgregaCategoria!
     var idMateria : Int!
@@ -27,6 +27,9 @@ class ViewControllerAgregaCategoria: UIViewController {
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tfNombre.delegate = self
+        self.tfPorcentaje.delegate = self
+        self.addDoneButtonOnKeyboard()
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
             listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
@@ -87,6 +90,41 @@ class ViewControllerAgregaCategoria: UIViewController {
             navigationController?.popViewController(animated: true)
         }
     }
+    // MARK: - Done del teclado 
+    @objc func analisis()->Void
+    {
+        let nom = tfNombre.text
+        let porc = Int(tfPorcentaje.text!)
+        let porcAcum = calcularPorc() + porc!
+        if(porcAcum>100)
+        {
+            let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
+            let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
+                        
+            }
+                let aceptar = UIAlertAction(title: "Aceptar", style: .default){
+                    (action) in
+                      
+                        let number = Int.random(in: 0 ... 10000)
+                    let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
+                    self.delegado.agregaCategoria(cat: unaCat)
+                    self.delegado.guardaCategorias()
+                    self.navigationController?.popViewController(animated: true)
+                }
+            alertController.addAction(aceptar)
+            alertController.addAction(cancelar)
+            present(alertController,animated: true,completion: nil)
+        }
+        if nom != "", porc != nil , porcAcum<=100
+        {
+            let number = Int.random(in: 0 ... 10000)
+            let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
+            delegado.agregaCategoria(cat: unaCat)
+            delegado.guardaCategorias()
+            navigationController?.popViewController(animated: true)
+        }
+         
+    }
    // MARK: -Esconder Teclado
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -127,6 +165,42 @@ class ViewControllerAgregaCategoria: UIViewController {
             distance = 0
             scrollView.isScrollEnabled = true
     }
+    // MARK: - Done y Next
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.switchBasedNextTextField(textField)
+        return true
+    }
+    private func switchBasedNextTextField(_ textField: UITextField) {
+        switch textField {
+        case self.tfNombre:
+            self.tfPorcentaje.becomeFirstResponder()
+        default:
+            self.tfNombre.resignFirstResponder()
+        }
+    }
+    func addDoneButtonOnKeyboard() {
+                 let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+                 doneToolbar.barStyle       = UIBarStyle.default
+         let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+         let done: UIBarButtonItem  = UIBarButtonItem(title: "done", style: UIBarButtonItem.Style.done, target: self, action: #selector(analisis))
+
+                 var items = [UIBarButtonItem]()
+                 items.append(flexSpace)
+                 items.append(done)
+
+                 doneToolbar.items = items
+                 doneToolbar.sizeToFit()
+
+                 self.tfPorcentaje.inputAccessoryView = doneToolbar
+             }
+
+         @objc func doneButtonAction() {
+                 self.tfPorcentaje.resignFirstResponder()
+                 /* Or:
+                 self.view.endEditing(true);
+                 */
+             }
+ 
     /*
     // MARK: - Navigation
 
