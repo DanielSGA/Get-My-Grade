@@ -313,7 +313,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-nj-XxW">
-                                        <rect key="frame" x="99.5" y="270" width="176" height="67"/>
+                                        <rect key="frame" x="99.5" y="270" width="176" height="67.000000000000028"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="67" id="OSN-RF-Gja"/>
                                             <constraint firstAttribute="height" constant="67" id="dxF-am-3mr"/>
@@ -511,7 +511,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-tS-5UC">
-                                        <rect key="frame" x="35.5" y="321" width="304" height="88"/>
+                                        <rect key="frame" x="35.5" y="321" width="304" height="88.000000000000028"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="88" id="rkh-Zb-kRP"/>
                                         </constraints>
@@ -532,7 +532,7 @@
                                             <constraint firstAttribute="width" constant="231" id="U2J-pN-huV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrega una nueva materia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-0D-HXy">
                                         <rect key="frame" x="35.5" y="122" width="304.5" height="30"/>
@@ -610,7 +610,7 @@
                                             <constraint firstAttribute="width" constant="167" id="QDf-Jd-D8V"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrega una nueva actividad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMb-jm-zP4">
                                         <rect key="frame" x="25.5" y="142" width="324" height="30"/>
@@ -730,7 +730,7 @@
                                             <constraint firstAttribute="width" constant="167" id="7bu-Vs-tRR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Porcentaje:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipy-Aw-yi2">
                                         <rect key="frame" x="25" y="279" width="134" height="30"/>

@@ -24,6 +24,8 @@ class ViewControllerAgregaMateria: UIViewController {
      // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+         tfNombre.addTarget(self, action: #selector(MyTextFielAction)
+                               , for: UIControl.Event.primaryActionTriggered)
     // Do any additional setup after loading the view.
     }
      // MARK: - Guardar datos escritos
@@ -39,7 +41,19 @@ class ViewControllerAgregaMateria: UIViewController {
         }
         
     }
-   
+    @objc func MyTextFielAction(textField: UITextField) {
+        let nom = tfNombre.text
+               if nom != ""
+               {
+                   let number = Int.random(in: 0 ... 1000)
+                   let unaMat = Materia(nombre:nom!, id: number, calificacion: 0, ponderacion:  0)
+                   delegado.agregaMateria(mat: unaMat)
+                   delegado.guardaMaterias()
+                   navigationController?.popToRootViewController(animated: true)
+               }
+    
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
