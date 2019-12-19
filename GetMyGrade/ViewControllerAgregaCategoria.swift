@@ -62,67 +62,75 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
     @IBAction func guardar(_ sender: UIButton) {
         let nom = tfNombre.text
         let porc = Int(tfPorcentaje.text!)
+        if nom != "", porc != nil
+        {
         let porcAcum = calcularPorc() + porc!
-        if(porcAcum>100)
-        {
-            let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
-            let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
-                        
-            }
-                let aceptar = UIAlertAction(title: "Aceptar", style: .default){
-                    (action) in
-                        let number = Int.random(in: 0 ... 10000)
-                    let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
-                    self.delegado.agregaCategoria(cat: unaCat)
-                    self.delegado.guardaCategorias()
-                    self.navigationController?.popViewController(animated: true)
+            if(porcAcum>100)
+            {
+                let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
+                let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
+                            
                 }
-            alertController.addAction(aceptar)
-            alertController.addAction(cancelar)
-            present(alertController,animated: true,completion: nil)
+                    let aceptar = UIAlertAction(title: "Aceptar", style: .default){
+                        (action) in
+                            let number = Int.random(in: 0 ... 10000)
+                        let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
+                        self.delegado.agregaCategoria(cat: unaCat)
+                        self.delegado.guardaCategorias()
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                alertController.addAction(aceptar)
+                alertController.addAction(cancelar)
+                present(alertController,animated: true,completion: nil)
+            }
+            if nom != "", porc != nil , porcAcum<=100
+                   {
+                       let number = Int.random(in: 0 ... 10000)
+                       let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
+                       delegado.agregaCategoria(cat: unaCat)
+                       delegado.guardaCategorias()
+                       navigationController?.popViewController(animated: true)
+                   }
         }
-        if nom != "", porc != nil , porcAcum<=100
-        {
-            let number = Int.random(in: 0 ... 10000)
-            let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
-            delegado.agregaCategoria(cat: unaCat)
-            delegado.guardaCategorias()
-            navigationController?.popViewController(animated: true)
-        }
+        
+        
+       
     }
     // MARK: - Done del teclado 
     @objc func analisis()->Void
     {
-        let nom = tfNombre.text
-        let porc = Int(tfPorcentaje.text!)
-        let porcAcum = calcularPorc() + porc!
-        if(porcAcum>100)
-        {
-            let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
-            let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
-                        
-            }
-                let aceptar = UIAlertAction(title: "Aceptar", style: .default){
-                    (action) in
-                      
-                        let number = Int.random(in: 0 ... 10000)
-                    let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
-                    self.delegado.agregaCategoria(cat: unaCat)
-                    self.delegado.guardaCategorias()
-                    self.navigationController?.popViewController(animated: true)
-                }
-            alertController.addAction(aceptar)
-            alertController.addAction(cancelar)
-            present(alertController,animated: true,completion: nil)
-        }
-        if nom != "", porc != nil , porcAcum<=100
-        {
-            let number = Int.random(in: 0 ... 10000)
-            let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
-            delegado.agregaCategoria(cat: unaCat)
-            delegado.guardaCategorias()
-            navigationController?.popViewController(animated: true)
-        }
+       let nom = tfNombre.text
+       let porc = Int(tfPorcentaje.text!)
+       if nom != "", porc != nil
+       {
+       let porcAcum = calcularPorc() + porc!
+           if(porcAcum>100)
+           {
+               let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
+               let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
+                           
+               }
+                   let aceptar = UIAlertAction(title: "Aceptar", style: .default){
+                       (action) in
+                           let number = Int.random(in: 0 ... 10000)
+                       let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
+                       self.delegado.agregaCategoria(cat: unaCat)
+                       self.delegado.guardaCategorias()
+                       self.navigationController?.popViewController(animated: true)
+                   }
+               alertController.addAction(aceptar)
+               alertController.addAction(cancelar)
+               present(alertController,animated: true,completion: nil)
+           }
+           if nom != "", porc != nil , porcAcum<=100
+                  {
+                      let number = Int.random(in: 0 ... 10000)
+                      let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
+                      delegado.agregaCategoria(cat: unaCat)
+                      delegado.guardaCategorias()
+                      navigationController?.popViewController(animated: true)
+                  }
+       }
          
     }
    // MARK: -Esconder Teclado
@@ -182,7 +190,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
                  let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
                  doneToolbar.barStyle       = UIBarStyle.default
          let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-         let done: UIBarButtonItem  = UIBarButtonItem(title: "done", style: UIBarButtonItem.Style.done, target: self, action: #selector(analisis))
+         let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(analisis))
 
                  var items = [UIBarButtonItem]()
                  items.append(flexSpace)

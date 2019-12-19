@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerAnalisis: UIViewController {
+class ViewControllerAnalisis: UIViewController{
      // MARK: - Variables y Outlets
     var listaMaterias = [Materia]()
     var matAnalisis : Materia!
@@ -32,6 +32,7 @@ class ViewControllerAnalisis: UIViewController {
      // MARK: -viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
          self.addDoneButtonOnKeyboard()
         // Do any additional setup after loading the view.
         do {
@@ -62,7 +63,7 @@ class ViewControllerAnalisis: UIViewController {
     }
  // MARK: -Hacer analisis
 @IBAction func HacerAnalisis(_ sender: UIButton) {
-        
+    doneButtonAction()
     let meta = Int(tfMeta.text!)
         
         if meta == 0 || meta == nil {
@@ -101,6 +102,7 @@ class ViewControllerAnalisis: UIViewController {
      // MARK: - Done del teclado
     @objc func analisis()->Void
     {
+        doneButtonAction()
        let meta = Int(tfMeta.text!)
         
         if meta == 0 || meta == nil {
@@ -196,14 +198,17 @@ class ViewControllerAnalisis: UIViewController {
                 doneToolbar.sizeToFit()
 
                 self.tfMeta.inputAccessoryView = doneToolbar
+     
+         
             }
 
         @objc func doneButtonAction() {
                 self.tfMeta.resignFirstResponder()
-                /* Or:
-                self.view.endEditing(true);
-                */
+                
+                //self.view.endEditing(true);
+                
             }
+  
     
     /*
     // MARK: - Navigation
