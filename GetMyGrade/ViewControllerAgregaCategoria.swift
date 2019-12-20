@@ -92,8 +92,34 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
                        navigationController?.popViewController(animated: true)
                    }
         }
-        
-        
+        else if(nom == "" && porc == nil)
+        {
+            let alert = UIAlertController(title: "Missing values", message: "Both values are missing", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
+                self.tfNombre.becomeFirstResponder()
+            }
+            alert.addAction(ok)
+            present(alert,animated: true,completion: nil)
+            
+        }
+        else if(nom == "" && porc != nil)
+        {
+            let alert = UIAlertController(title: "Missing value", message: "Name of the category is missing", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
+                self.tfNombre.becomeFirstResponder()
+            }
+            alert.addAction(ok)
+            present(alert,animated: true,completion: nil)
+        }
+         else if(nom != "" && porc == nil)
+        {
+            let alert = UIAlertController(title: "Missing value", message: "Percentage of the category is missing", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
+                self.tfPorcentaje.becomeFirstResponder()
+            }
+            alert.addAction(ok)
+            present(alert,animated: true,completion: nil)
+        }
        
     }
     // MARK: - Done del teclado 
@@ -131,6 +157,34 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
                       navigationController?.popViewController(animated: true)
                   }
        }
+        else if(nom == "" && porc == nil)
+            {
+                let alert = UIAlertController(title: "Missing values", message: "Both values are missing", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
+                    self.tfNombre.becomeFirstResponder()
+                }
+                alert.addAction(ok)
+                present(alert,animated: true,completion: nil)
+                
+            }
+            else if(nom == "" && porc != nil)
+            {
+                let alert = UIAlertController(title: "Missing value", message: "Name of the category is missing", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
+                    self.tfNombre.becomeFirstResponder()
+                }
+                alert.addAction(ok)
+                present(alert,animated: true,completion: nil)
+            }
+             else if(nom != "" && porc == nil)
+            {
+                let alert = UIAlertController(title: "Missing value", message: "Percentage of the category is missing", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
+                    self.tfPorcentaje.becomeFirstResponder()
+                }
+                alert.addAction(ok)
+                present(alert,animated: true,completion: nil)
+            }
          
     }
    // MARK: -Esconder Teclado
