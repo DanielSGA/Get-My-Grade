@@ -55,10 +55,6 @@ class ViewControllerAgregaMateria: UIViewController,UITextFieldDelegate{
                         present(alert,animated: true,completion: nil)
                     }
     }
-    
-    
-
-
     /*
     
     func createGradientLayer() {

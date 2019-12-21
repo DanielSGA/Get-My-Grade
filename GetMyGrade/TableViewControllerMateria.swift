@@ -103,6 +103,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         
         actualizarCalif()
        
+       
     }
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
@@ -221,6 +222,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         guardaActividades()
         guardaCategorias()
         guardaMaterias()
+     
     }
     func borrarCategorias(idMat:Int)
     {
@@ -268,6 +270,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
             //resetear()
             let viewAgregar = segue.destination as! ViewControllerAgregaMateria
             viewAgregar.delegado = self
+            setEditing(false, animated: true)
         }
         else if(segue.identifier=="segue_analisis"){
             let vistaAnalisis = segue.destination as! ViewControllerAnalisis

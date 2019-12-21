@@ -21,15 +21,26 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfPorcentaje: UITextField!
-    @IBAction func quitaTeclado() {
-        view.endEditing(true)
-    }
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tfNombre.delegate = self
         self.tfPorcentaje.delegate = self
         self.addDoneButtonOnKeyboard()
+        self.tfNombre.becomeFirstResponder()
+        
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: tfNombre.frame.height-2, width: tfNombre.frame.width, height: 2)
+        bottomLine.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
+        tfNombre.borderStyle = .none
+        tfNombre.layer.addSublayer(bottomLine)
+        
+        let bottomLines = CALayer()
+        bottomLines.frame = CGRect(x: 0, y: tfPorcentaje.frame.height-2, width: tfPorcentaje.frame.width, height: 2)
+        bottomLines.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
+        tfPorcentaje.borderStyle = .none
+        tfPorcentaje.layer.addSublayer(bottomLines)
+        
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
             listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
@@ -37,6 +48,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
         catch {
             print("Error reading or decoding file")
         }
+        
     }
     // MARK: - DataFileUrl
     func dataFileUrl() -> URL {
@@ -59,70 +71,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
         return acum
     }
 // MARK: - Guardar datos escritos
-    @IBAction func guardar(_ sender: UIButton) {
-        let nom = tfNombre.text
-        let porc = Int(tfPorcentaje.text!)
-        if nom != "", porc != nil
-        {
-        let porcAcum = calcularPorc() + porc!
-            if(porcAcum>100)
-            {
-                let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
-                let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
-                            
-                }
-                    let aceptar = UIAlertAction(title: "Aceptar", style: .default){
-                        (action) in
-                            let number = Int.random(in: 0 ... 10000)
-                        let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
-                        self.delegado.agregaCategoria(cat: unaCat)
-                        self.delegado.guardaCategorias()
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                alertController.addAction(aceptar)
-                alertController.addAction(cancelar)
-                present(alertController,animated: true,completion: nil)
-            }
-            if nom != "", porc != nil , porcAcum<=100
-                   {
-                       let number = Int.random(in: 0 ... 10000)
-                       let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
-                       delegado.agregaCategoria(cat: unaCat)
-                       delegado.guardaCategorias()
-                       navigationController?.popViewController(animated: true)
-                   }
-        }
-        else if(nom == "" && porc == nil)
-        {
-            let alert = UIAlertController(title: "Missing values", message: "Both values are missing", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                self.tfNombre.becomeFirstResponder()
-            }
-            alert.addAction(ok)
-            present(alert,animated: true,completion: nil)
-            
-        }
-        else if(nom == "" && porc != nil)
-        {
-            let alert = UIAlertController(title: "Missing value", message: "Name of the category is missing", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                self.tfNombre.becomeFirstResponder()
-            }
-            alert.addAction(ok)
-            present(alert,animated: true,completion: nil)
-        }
-         else if(nom != "" && porc == nil)
-        {
-            let alert = UIAlertController(title: "Missing value", message: "Percentage of the category is missing", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                self.tfPorcentaje.becomeFirstResponder()
-            }
-            alert.addAction(ok)
-            present(alert,animated: true,completion: nil)
-        }
-       
-    }
-    // MARK: - Done del teclado 
+
     @objc func analisis()->Void
     {
        let nom = tfNombre.text
@@ -187,46 +136,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
             }
          
     }
-   // MARK: -Esconder Teclado
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
-    }
-        @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-
-            var safeArea = self.view.frame
-            safeArea.size.height += scrollView.contentOffset.y
-            safeArea.size.height -= keyboardSize.height + (UIScreen.main.bounds.height*0.04) // Adjust buffer to your liking
-
-            // determine which UIView was selected and if it is covered by keyboard
-
-            let activeField: UIView? = [tfNombre,tfPorcentaje].first { $0.isFirstResponder }
-            if let activeField = activeField {
-                if safeArea.contains(CGPoint(x: 0, y: activeField.frame.maxY)) {
-                    print("No need to Scroll")
-                    return
-                } else {
-                    distance = activeField.frame.maxY - safeArea.size.height
-                    scrollOffset = scrollView.contentOffset.y
-                    self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffset + distance), animated: true)
-                }
-            }
-            // prevent scrolling while typing
-
-            scrollView.isScrollEnabled = false
-        }
-    }
-    @objc func keyboardWillHide(notification: NSNotification) {
-            if distance == 0 {
-                return
-            }
-            // return to origin scrollOffset
-            self.scrollView.setContentOffset(CGPoint(x: 0, y: scrollOffset), animated: true)
-            scrollOffset = 0
-            distance = 0
-            scrollView.isScrollEnabled = true
-    }
+  
     // MARK: - Done y Next
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.switchBasedNextTextField(textField)
