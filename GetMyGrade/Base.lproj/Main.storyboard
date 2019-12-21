@@ -510,29 +510,37 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-VG-R37">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Math " textAlignment="center" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-Qj-RlV">
-                                        <rect key="frame" x="72" y="221" width="231" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="0tj-yz-YNF"/>
-                                            <constraint firstAttribute="width" constant="231" id="U2J-pN-huV"/>
-                                        </constraints>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Math " textAlignment="center" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-Qj-RlV">
+                                        <rect key="frame" x="72" y="150" width="231" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrega una nueva materia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-0D-HXy">
-                                        <rect key="frame" x="35.5" y="122" width="304.5" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new course " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-0D-HXy">
+                                        <rect key="frame" x="81" y="67" width="213" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Course grade is over 100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mvg-4O-I1l">
+                                        <rect key="frame" x="152" y="212" width="151" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSq-PA-4Uz">
+                                        <rect key="frame" x="139" y="266" width="97" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w5r-W3-lGi">
+                                        <rect key="frame" x="72" y="205" width="49" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </switch>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="GFb-Qj-RlV" firstAttribute="top" secondItem="Qm7-0D-HXy" secondAttribute="bottom" constant="69" id="DXk-28-60W"/>
-                                    <constraint firstItem="Qm7-0D-HXy" firstAttribute="centerX" secondItem="GFb-Qj-RlV" secondAttribute="centerX" id="Qry-kY-sZN"/>
-                                    <constraint firstAttribute="trailing" secondItem="GFb-Qj-RlV" secondAttribute="trailing" constant="72" id="TWU-y9-YRs"/>
-                                    <constraint firstItem="Qm7-0D-HXy" firstAttribute="top" secondItem="9Js-K1-ilW" secondAttribute="top" constant="122" id="b7G-jz-PIe"/>
-                                    <constraint firstItem="GFb-Qj-RlV" firstAttribute="leading" secondItem="JFU-VG-R37" secondAttribute="leading" constant="72" id="vni-BF-j3K"/>
-                                </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="9Js-K1-ilW"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="qsa-Sk-wGn"/>
                             </scrollView>
@@ -659,6 +667,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ng-Wu-GFE">
+                                        <rect key="frame" x="181" y="225" width="123" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Porcentaje:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipy-Aw-yi2">
                                         <rect key="frame" x="32" y="229" width="134" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -673,12 +687,13 @@
                                         <color key="textColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ng-Wu-GFE">
-                                        <rect key="frame" x="181" y="225" width="167" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YNY-Vr-BvX">
+                                        <rect key="frame" x="317" y="225" width="42" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Hwr-YT-tTb"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ACH-aq-FHJ"/>
@@ -705,11 +720,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D19-hD-fqI" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="z3Q-27-6Sk">
-                    <connections>
-                        <action selector="quitaTeclado" destination="SgR-pn-rJe" id="Wcn-Y8-xD6"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="z3Q-27-6Sk"/>
             </objects>
             <point key="canvasLocation" x="908" y="-400.74962518740631"/>
         </scene>

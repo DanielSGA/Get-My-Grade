@@ -48,7 +48,6 @@ class ViewControllerAnalisis: UIViewController{
 
             if (listaMaterias[i].id == idMat){
                 matAnalisis = listaMaterias[i]
-                print(listaMaterias[i].calificacion)
             }
                            
         i += 1
@@ -86,7 +85,7 @@ class ViewControllerAnalisis: UIViewController{
             else {
                 
                 let puntosParaMeta = meta! - matAnalisis.calificacion
-                let puntosRestantes = 100 - matAnalisis.ponderacion
+                let puntosRestantes = matAnalisis.total - matAnalisis.ponderacion
                 
                 
                 if puntosRestantes < puntosParaMeta {

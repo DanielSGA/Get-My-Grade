@@ -13,11 +13,13 @@ class Materia: Codable {
     var id: Int = 0
     var calificacion: Int = 0
     var ponderacion: Int = 0
-    init(nombre:String,id:Int,calificacion:Int, ponderacion:Int)
+    var total: Int = 100
+    init(nombre:String,id:Int,calificacion:Int, ponderacion:Int,total:Int)
     {
         self.nombre=nombre
         self.id=id
         self.calificacion=calificacion
         self.ponderacion = ponderacion
+        self.total = total
     }
 }
