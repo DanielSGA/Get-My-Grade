@@ -510,28 +510,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-VG-R37">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3kp-tS-5UC">
-                                        <rect key="frame" x="35.5" y="321" width="304" height="88"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="88" id="rkh-Zb-kRP"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="ACEPTAR" backgroundImage="boton1">
-                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="guardar:" destination="DKb-u2-0ex" eventType="touchUpInside" id="bkf-zx-gEm"/>
-                                            <action selector="guardar:" destination="eZu-0p-bvy" eventType="touchUpInside" id="hxJ-IP-A8z"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-Qj-RlV">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Math " textAlignment="center" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="GFb-Qj-RlV">
                                         <rect key="frame" x="72" y="221" width="231" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="0tj-yz-YNF"/>
                                             <constraint firstAttribute="width" constant="231" id="U2J-pN-huV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agrega una nueva materia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qm7-0D-HXy">
@@ -543,13 +528,9 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="GFb-Qj-RlV" firstAttribute="top" secondItem="Qm7-0D-HXy" secondAttribute="bottom" constant="69" id="DXk-28-60W"/>
-                                    <constraint firstItem="3kp-tS-5UC" firstAttribute="top" secondItem="GFb-Qj-RlV" secondAttribute="bottom" constant="66" id="HFa-N2-iLJ"/>
-                                    <constraint firstItem="3kp-tS-5UC" firstAttribute="centerX" secondItem="JFU-VG-R37" secondAttribute="centerX" id="MvD-Qn-obI"/>
                                     <constraint firstItem="Qm7-0D-HXy" firstAttribute="centerX" secondItem="GFb-Qj-RlV" secondAttribute="centerX" id="Qry-kY-sZN"/>
-                                    <constraint firstItem="9Js-K1-ilW" firstAttribute="trailing" secondItem="3kp-tS-5UC" secondAttribute="trailing" constant="35.5" id="TBq-yS-UMl"/>
                                     <constraint firstAttribute="trailing" secondItem="GFb-Qj-RlV" secondAttribute="trailing" constant="72" id="TWU-y9-YRs"/>
                                     <constraint firstItem="Qm7-0D-HXy" firstAttribute="top" secondItem="9Js-K1-ilW" secondAttribute="top" constant="122" id="b7G-jz-PIe"/>
-                                    <constraint firstItem="3kp-tS-5UC" firstAttribute="leading" secondItem="9Js-K1-ilW" secondAttribute="leading" constant="35.5" id="qNb-Lt-TFj"/>
                                     <constraint firstItem="GFb-Qj-RlV" firstAttribute="leading" secondItem="JFU-VG-R37" secondAttribute="leading" constant="72" id="vni-BF-j3K"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="9Js-K1-ilW"/>
@@ -576,12 +557,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCM-lH-Dm9" sceneMemberID="firstResponder"/>
-                <exit id="eZu-0p-bvy" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="5qO-Ju-piY">
-                    <connections>
-                        <action selector="quitaTeclado" destination="DKb-u2-0ex" id="7CJ-6X-uLT"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="5qO-Ju-piY"/>
             </objects>
             <point key="canvasLocation" x="77.599999999999994" y="-400.74962518740631"/>
         </scene>
