@@ -58,7 +58,7 @@ class ViewControllerAnalisis: UIViewController{
         lbAnalisis.isHidden = true
         lbAnalisis2.isHidden = true
         lbAnalisis3.isHidden = true
-        print(matAnalisis.calificacion)
+        print(matAnalisis.total)
     }
  // MARK: -Hacer analisis
 @IBAction func HacerAnalisis(_ sender: UIButton) {
@@ -87,9 +87,9 @@ class ViewControllerAnalisis: UIViewController{
                 let puntosParaMeta = meta! - matAnalisis.calificacion
                 let puntosRestantes = matAnalisis.total - matAnalisis.ponderacion
                 
-                
                 if puntosRestantes < puntosParaMeta {
                     lbAnalisis3.text = "Lo sentimos mucho, con los puntos que quedan ya no podras alcanzar tu meta"
+                 
                 }
                 else{
                     let prom = (puntosParaMeta * 100)/puntosRestantes
@@ -124,7 +124,7 @@ class ViewControllerAnalisis: UIViewController{
             else {
                 
                 let puntosParaMeta = meta! - matAnalisis.calificacion
-                let puntosRestantes = 100 - matAnalisis.ponderacion
+                let puntosRestantes = matAnalisis.total - matAnalisis.ponderacion
                 
                 
                 if puntosRestantes < puntosParaMeta {

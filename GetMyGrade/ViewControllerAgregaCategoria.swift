@@ -21,6 +21,8 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfPorcentaje: UITextField!
+    
+    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
