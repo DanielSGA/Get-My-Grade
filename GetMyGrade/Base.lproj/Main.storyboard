@@ -16,33 +16,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="42" id="Zf0-JV-VjM" customClass="UITableViewCellMateria" customModule="GetMyGrade" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="42"/>
+                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="65" id="Zf0-JV-VjM" customClass="UITableViewCellMateria" customModule="GetMyGrade" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zf0-JV-VjM" id="O81-fH-Ead">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stk-Wb-qIZ">
-                                            <rect key="frame" x="237" y="10" width="122" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqR-fN-mQW">
-                                            <rect key="frame" x="190" y="10" width="25" height="22"/>
+                                            <rect key="frame" x="250" y="11" width="125" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="tintColor" red="0.5423497558" green="0.06484933943" blue="0.0077587259" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <state key="normal" image="magnifyingglass.circle.fill" catalog="system"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                            <color key="tintColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="22" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="100" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="ANALISIS" image="magnifyingglass" catalog="system">
+                                                <color key="titleColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </state>
                                             <connections>
                                                 <segue destination="lPX-3B-zMb" kind="show" identifier="segue_analisis" id="tL9-iJ-a9o"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfK-lD-9e0">
-                                            <rect key="frame" x="16" y="11" width="128" height="21"/>
+                                            <rect key="frame" x="16" y="8" width="102" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stk-Wb-qIZ">
+                                            <rect key="frame" x="143" y="11" width="113" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -63,7 +68,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="g9g-dn-pSh">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="edit" id="czE-l3-VB3"/>
+                            <barButtonItem image="trash" catalog="system" id="czE-l3-VB3"/>
                             <barButtonItem systemItem="add" id="mH7-M9-7lz">
                                 <connections>
                                     <segue destination="DKb-u2-0ex" kind="show" identifier="segue_agrega_materia" id="as5-AN-6kn"/>
@@ -148,7 +153,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="4Lo-7A-ACt">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="edit" id="wCC-Fz-Yz4"/>
+                            <barButtonItem systemItem="trash" id="wCC-Fz-Yz4"/>
                             <barButtonItem systemItem="add" id="Dh0-Ma-zqT">
                                 <connections>
                                     <segue destination="SgR-pn-rJe" kind="show" identifier="segue_agrega_categoria" id="JW8-pl-hKo"/>
@@ -215,7 +220,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="mPr-BT-n68">
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="edit" id="C0k-8g-w7s"/>
+                            <barButtonItem systemItem="trash" id="C0k-8g-w7s"/>
                             <barButtonItem systemItem="add" id="PXh-3I-u6I">
                                 <connections>
                                     <segue destination="BXb-AX-f37" kind="show" identifier="segue_agrega_actividad" id="f3C-kA-Kue"/>
@@ -732,7 +737,8 @@
         <image name="boton1" width="304" height="107"/>
         <image name="credits" width="1000" height="1000"/>
         <image name="info.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="magnifyingglass.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="pencil" catalog="system" width="64" height="56"/>
+        <image name="trash" catalog="system" width="60" height="64"/>
     </resources>
 </document>
