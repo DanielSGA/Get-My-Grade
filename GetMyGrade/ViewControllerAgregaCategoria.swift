@@ -18,6 +18,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
     var scrollOffset : CGFloat = 0
     var distance : CGFloat = 0
     var listaCategorias = [Categoria]()
+    var listaMaterias = [Materia]()
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfPorcentaje: UITextField!
@@ -50,6 +51,13 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
         catch {
             print("Error reading or decoding file")
         }
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl2())
+            listaMaterias = try PropertyListDecoder().decode([Materia].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
         
     }
     // MARK: - DataFileUrl
@@ -58,6 +66,11 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
         let pathArchivo = url.appendingPathComponent("Categorias.plist")
         return pathArchivo
     }
+    func dataFileUrl2() -> URL {
+         let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+         let pathArchivo = url.appendingPathComponent("Materias.plist")
+         return pathArchivo
+     }
 // MARK: -Acumulado de Porcentaje
     func calcularPorc() -> Int {
         var acum = 0
@@ -72,22 +85,38 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
         }
         return acum
     }
+// MARK: - Buscar Materia
+    func buscarMateria()->Int
+    {
+        var i = 0
+        var indice = 0
+        while(listaMaterias.count>i)
+        {
+            if(listaMaterias[i].id == idMateria)
+            {
+               indice = i
+            }
+            i+=1
+        }
+        return listaMaterias[indice].total
+    }
 // MARK: - Guardar datos escritos
 
     @objc func analisis()->Void
     {
        let nom = tfNombre.text
        let porc = Int(tfPorcentaje.text!)
+       let total = buscarMateria()
        if nom != "", porc != nil
        {
        let porcAcum = calcularPorc() + porc!
-           if(porcAcum>100)
+           if(porcAcum>total)
            {
-               let alertController = UIAlertController(title: "Alerta", message: "Se esta agregando una calificacion arriba de 100", preferredStyle: .alert)
-               let cancelar = UIAlertAction(title: "Modificar", style: .default) { (action) in
+               let alertController = UIAlertController(title: "Warning ", message: "You are adding a a percentage that will put your grade over "+String(total), preferredStyle: .alert)
+               let cancelar = UIAlertAction(title: "Change", style: .default) { (action) in
                            
                }
-                   let aceptar = UIAlertAction(title: "Aceptar", style: .default){
+                   let aceptar = UIAlertAction(title: "Accept", style: .default){
                        (action) in
                            let number = Int.random(in: 0 ... 10000)
                        let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
@@ -99,7 +128,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
                alertController.addAction(cancelar)
                present(alertController,animated: true,completion: nil)
            }
-           if nom != "", porc != nil , porcAcum<=100
+           if nom != "", porc != nil , porcAcum<=total
                   {
                       let number = Int.random(in: 0 ... 10000)
                       let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
