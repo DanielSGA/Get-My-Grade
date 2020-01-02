@@ -63,14 +63,14 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     // MARK: - Editar calificacion
     @IBAction func editar(_ sender: UIButton) {
         setEditing(false, animated: true)
-        let alert = UIAlertController(title: "Editar Calificación", message: nil, preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Edit Grade", message: nil, preferredStyle: UIAlertController.Style.alert)
         
         alert.addTextField(configurationHandler: { (textField) in
-            textField.placeholder = "Escribe nueva calificación"})
+            textField.placeholder = "Write a new Grade"})
         
-        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
         
-        let submitAction = UIAlertAction(title: "Aceptar", style: .default) { [unowned alert] _ in
+        let submitAction = UIAlertAction(title: "Accept", style: .default) { [unowned alert] _ in
             let pond_Nueva = Int(alert.textFields![0].text!)
         
         var x = 0
@@ -169,7 +169,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier=="segue_agrega_actividad")
+        if(segue.identifier=="footer")
         {
             let viewAgregar = segue.destination as! ViewControllerAgregaActividad
             viewAgregar.delegado = self

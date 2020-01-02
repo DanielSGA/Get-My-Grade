@@ -78,7 +78,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
        
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.title = "Materias"
+        self.title = "Courses"
         
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
@@ -266,7 +266,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier=="segue_agrega_materia")
+        if(segue.identifier=="footer")
         {
             //resetear()
             let viewAgregar = segue.destination as! ViewControllerAgregaMateria

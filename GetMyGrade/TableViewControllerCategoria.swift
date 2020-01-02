@@ -65,7 +65,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
       
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.title = nomMateria + " - Categorías"
+        self.title = nomMateria + " - Categories"
        
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
@@ -134,14 +134,14 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     // MARK: - Editar ponderacion
     @IBAction func Editar(_ sender: UIButton) {
         setEditing(false, animated: true)
-        let alert = UIAlertController(title: "Editar Porcentaje", message: nil, preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Edit Percentage", message: nil, preferredStyle: UIAlertController.Style.alert)
         
         alert.addTextField(configurationHandler: { (textField) in
-        textField.placeholder = "Escribe nuevo porcentaje"})
+        textField.placeholder = "Write a new Percentage"})
         
-        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: {(ACTION) in alert.dismiss(animated: true, completion: nil)}))
         
-        let submitAction = UIAlertAction(title: "Aceptar", style: .default) { [unowned alert] _ in
+        let submitAction = UIAlertAction(title: "Accept", style: .default) { [unowned alert] _ in
             let pond_Nueva = Int(alert.textFields![0].text!)
             
         var x = 0
@@ -277,7 +277,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier=="segue_agrega_categoria")
+        if(segue.identifier=="footer")
         {
             let viewAgregar = segue.destination as! ViewControllerAgregaCategoria
             viewAgregar.delegado = self
