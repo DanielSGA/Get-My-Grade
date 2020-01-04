@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerAnalisis: UIViewController{
+class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControllerTransitioningDelegate {
      // MARK: - Variables y Outlets
     var listaMaterias = [Materia]()
     var matAnalisis : Materia!
@@ -17,7 +17,10 @@ class ViewControllerAnalisis: UIViewController{
     var scrollOffset : CGFloat = 0
     var distance : CGFloat = 0
     var countFired: CGFloat = 0
+    let transition = CircularTransition()
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var progressBar: ProgressBar!
     @IBOutlet weak var tfMeta: UITextField!
     @IBOutlet weak var lbAnalisis: UILabel!
@@ -34,7 +37,7 @@ class ViewControllerAnalisis: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         self.addDoneButtonOnKeyboard()
+        menuButton.layer.cornerRadius = menuButton.frame.size.width / 2
         // Do any additional setup after loading the view.
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
@@ -43,6 +46,13 @@ class ViewControllerAnalisis: UIViewController{
         catch {
             print("Error reading or decoding file")
         }
+        self.tfMeta.delegate = self
+        self.tfMeta.becomeFirstResponder()
+        let bottomLine = CALayer()
+              bottomLine.frame = CGRect(x: 0, y: tfMeta.frame.height-2, width: tfMeta.frame.width, height: 2)
+              bottomLine.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
+              tfMeta.borderStyle = .none
+              tfMeta.layer.addSublayer(bottomLine)
         
         var i = 0
         while (listaMaterias.count > i){
@@ -81,7 +91,7 @@ class ViewControllerAnalisis: UIViewController{
     }
  // MARK: -Hacer analisis
 @IBAction func HacerAnalisis(_ sender: UIButton) {
-    doneButtonAction()
+
     let meta = Int(tfMeta.text!)
         
         if meta == 0 || meta == nil {
@@ -117,46 +127,8 @@ class ViewControllerAnalisis: UIViewController{
             }
         }
     }
-     // MARK: - Done del teclado
-    @objc func analisis()->Void
-    {
-        doneButtonAction()
-       let meta = Int(tfMeta.text!)
-        
-        if meta == 0 || meta == nil {
-            lbAnalisis.isHidden = true
-            lbAnalisis2.isHidden = true
-            lbAnalisis3.isHidden = true
-        }
-        else{
-            lbAnalisis.isHidden = false
-            lbAnalisis.text = "Actualmente llevas una calificacion de " + String(matAnalisis.calificacion)
-            lbAnalisis2.isHidden = false
-            lbAnalisis2.text = "Y buscas llegar a una calificacion de " + String(meta!)
-            lbAnalisis3.isHidden = false
-            
-            if meta! <= matAnalisis.calificacion {
-                
-                lbAnalisis3.text = "Felicidades! Ya alcanzaste tu meta!"
-            }
-                
-            else {
-                
-                let puntosParaMeta = meta! - matAnalisis.calificacion
-                let puntosRestantes = matAnalisis.total - matAnalisis.ponderacion
-                
-                
-                if puntosRestantes < puntosParaMeta {
-                    lbAnalisis3.text = "Lo sentimos mucho, con los puntos que quedan ya no podras alcanzar tu meta"
-                }
-                else{
-                    let prom = (puntosParaMeta * 100)/puntosRestantes
-                    lbAnalisis3.text = "En el resto de las actividades de la materia, necesitas obtener un promedio de " + String(prom) + " para llegar a tu meta."
-                }
-            }
-        }
-         
-    }
+
+    
      // MARK: -Esconder Teclado
     @IBAction func quitaTeclado() {
         view.endEditing(true)
@@ -201,42 +173,37 @@ class ViewControllerAnalisis: UIViewController{
             distance = 0
             scrollView.isScrollEnabled = true
     }
-     // MARK: - Done
-    func addDoneButtonOnKeyboard() {
-                let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
-                doneToolbar.barStyle       = UIBarStyle.default
-        let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem  = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(analisis))
-
-                var items = [UIBarButtonItem]()
-                items.append(flexSpace)
-                items.append(done)
-
-                doneToolbar.items = items
-                doneToolbar.sizeToFit()
-
-                self.tfMeta.inputAccessoryView = doneToolbar
-     
-         
-            }
-
-        @objc func doneButtonAction() {
-                self.tfMeta.resignFirstResponder()
-                
-                //self.view.endEditing(true);
-                
-            }
+ 
+    
+    
+    
+    // MARK: - Navigation y animacion
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let secondVC = segue.destination as! ViewControllerResultadosAnalisis
+         secondVC.transitioningDelegate = self
+        secondVC.modalPresentationStyle = .custom
+    }
+    
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = menuButton.center
+        transition.circleColor = menuButton.backgroundColor!
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = menuButton.center
+        transition.circleColor = menuButton.backgroundColor!
+        
+        return transition
+    }
+    
   
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     // MARK: - Restringir rotacion
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
     return UIInterfaceOrientationMask.landscape

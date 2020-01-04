@@ -27,6 +27,8 @@
 		C11407F92352B83700C11473 /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F82352B83700C11473 /* Categoria.swift */; };
 		C11407FB2352B92500C11473 /* Actividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407FA2352B92500C11473 /* Actividad.swift */; };
 		C15C4B7C23C10912007B5A18 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7B23C10912007B5A18 /* ProgressBar.swift */; };
+		C15C4B7E23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */; };
+		C15C4B8023C14D75007B5A18 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		C11407F82352B83700C11473 /* Categoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
 		C11407FA2352B92500C11473 /* Actividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividad.swift; sourceTree = "<group>"; };
 		C15C4B7B23C10912007B5A18 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResultadosAnalisis.swift; sourceTree = "<group>"; };
+		C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
 				43F8DE9D234FF74900ABEEEE /* Main.storyboard */,
 				C15C4B7B23C10912007B5A18 /* ProgressBar.swift */,
+				C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */,
 				43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */,
 				0CCA554623669852004C8E32 /* StartView.swift */,
 				C11407F62352B7E100C11473 /* Materia.swift */,
@@ -102,6 +107,7 @@
 				43F8DEAF234FF91B00ABEEEE /* TableViewControllerCategoria.swift */,
 				43F8DEB1234FF92F00ABEEEE /* TableViewControllerActividad.swift */,
 				A2FF36F92371D4AD00F34C67 /* ViewControllerAnalisis.swift */,
+				C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */,
 				43F8DEA0234FF74B00ABEEEE /* Assets.xcassets */,
 				43F8DEA2234FF74B00ABEEEE /* LaunchScreen.storyboard */,
 				43F8DEA5234FF74B00ABEEEE /* Info.plist */,
@@ -180,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C15C4B7E23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift in Sources */,
 				43F8DEAE234FF8F000ABEEEE /* TableViewControllerMateria.swift in Sources */,
 				C15C4B7C23C10912007B5A18 /* ProgressBar.swift in Sources */,
 				43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */,
@@ -187,6 +194,7 @@
 				43E68AE0238B20330044A2CE /* TableViewCellActividad.swift in Sources */,
 				43F8DEB2234FF92F00ABEEEE /* TableViewControllerActividad.swift in Sources */,
 				0CCA554723669852004C8E32 /* StartView.swift in Sources */,
+				C15C4B8023C14D75007B5A18 /* CircularTransition.swift in Sources */,
 				A2FF36FA2371D4AD00F34C67 /* ViewControllerAnalisis.swift in Sources */,
 				C11407F92352B83700C11473 /* Categoria.swift in Sources */,
 				43F8DE98234FF74900ABEEEE /* AppDelegate.swift in Sources */,
