@@ -26,6 +26,7 @@
 		C11407F72352B7E100C11473 /* Materia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F62352B7E100C11473 /* Materia.swift */; };
 		C11407F92352B83700C11473 /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407F82352B83700C11473 /* Categoria.swift */; };
 		C11407FB2352B92500C11473 /* Actividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11407FA2352B92500C11473 /* Actividad.swift */; };
+		C15C4B7C23C10912007B5A18 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7B23C10912007B5A18 /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		C11407F62352B7E100C11473 /* Materia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Materia.swift; sourceTree = "<group>"; };
 		C11407F82352B83700C11473 /* Categoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
 		C11407FA2352B92500C11473 /* Actividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actividad.swift; sourceTree = "<group>"; };
+		C15C4B7B23C10912007B5A18 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */,
 				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
 				43F8DE9D234FF74900ABEEEE /* Main.storyboard */,
+				C15C4B7B23C10912007B5A18 /* ProgressBar.swift */,
 				43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */,
 				0CCA554623669852004C8E32 /* StartView.swift */,
 				C11407F62352B7E100C11473 /* Materia.swift */,
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43F8DEAE234FF8F000ABEEEE /* TableViewControllerMateria.swift in Sources */,
+				C15C4B7C23C10912007B5A18 /* ProgressBar.swift in Sources */,
 				43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */,
 				43A0238023821A85004FD438 /* UITableViewCellMateria.swift in Sources */,
 				43E68AE0238B20330044A2CE /* TableViewCellActividad.swift in Sources */,

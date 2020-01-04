@@ -330,21 +330,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-3k-abv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuW-VT-Nm1">
-                                        <rect key="frame" x="26" y="16" width="310" height="86"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                        <color key="textColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qij-KC-ryf">
-                                        <rect key="frame" x="26" y="71" width="310" height="86"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="86" id="qha-G7-4mG"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="45"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meta:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjh-YE-Zwu">
                                         <rect key="frame" x="26" y="212" width="67" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -406,23 +391,25 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hS1-GD-lOu" customClass="ProgressBar" customModule="GetMyGrade" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="33" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="UuW-VT-Nm1" firstAttribute="top" secondItem="bt4-Lh-fOH" secondAttribute="top" constant="72" id="6R3-X7-xWJ"/>
-                                    <constraint firstItem="bt4-Lh-fOH" firstAttribute="trailing" secondItem="UuW-VT-Nm1" secondAttribute="trailing" constant="39" id="91Y-zX-KIJ"/>
                                     <constraint firstItem="cMK-LT-dqQ" firstAttribute="centerY" secondItem="cjh-YE-Zwu" secondAttribute="centerY" id="9YP-5L-cac"/>
-                                    <constraint firstItem="UuW-VT-Nm1" firstAttribute="leading" secondItem="qij-KC-ryf" secondAttribute="leading" id="BjX-Zf-CVp"/>
                                     <constraint firstAttribute="bottom" secondItem="cMK-LT-dqQ" secondAttribute="bottom" constant="346" id="Cdu-Po-trN"/>
                                     <constraint firstItem="obg-2D-irt" firstAttribute="top" secondItem="MqR-E4-V9r" secondAttribute="bottom" constant="-12" id="Dre-25-kgh"/>
                                     <constraint firstItem="bt4-Lh-fOH" firstAttribute="bottom" secondItem="obg-2D-irt" secondAttribute="bottom" constant="75" id="EJ5-Ib-qqD"/>
-                                    <constraint firstItem="cMK-LT-dqQ" firstAttribute="top" secondItem="qij-KC-ryf" secondAttribute="bottom" constant="54" id="Fr8-0F-2hm"/>
                                     <constraint firstItem="obg-2D-irt" firstAttribute="leading" secondItem="8lF-D7-2Ry" secondAttribute="leading" constant="26" id="HYd-iE-10V"/>
-                                    <constraint firstAttribute="trailing" secondItem="UuW-VT-Nm1" secondAttribute="trailing" constant="39" id="HZZ-k6-rS8"/>
-                                    <constraint firstItem="UuW-VT-Nm1" firstAttribute="trailing" secondItem="qij-KC-ryf" secondAttribute="trailing" id="HjZ-Zk-Fwe"/>
-                                    <constraint firstItem="qij-KC-ryf" firstAttribute="top" secondItem="UuW-VT-Nm1" secondAttribute="bottom" constant="-31" id="I9M-SK-weZ"/>
                                     <constraint firstItem="MqR-E4-V9r" firstAttribute="top" secondItem="OJN-ya-NYI" secondAttribute="bottom" constant="15" id="IEk-0J-4vs"/>
                                     <constraint firstItem="8lF-D7-2Ry" firstAttribute="trailing" secondItem="OJN-ya-NYI" secondAttribute="trailing" constant="18" id="Mdo-g5-0ZN"/>
-                                    <constraint firstItem="UuW-VT-Nm1" firstAttribute="leading" secondItem="bt4-Lh-fOH" secondAttribute="leading" constant="26" id="RMh-Bc-Twf"/>
                                     <constraint firstItem="8lF-D7-2Ry" firstAttribute="bottom" secondItem="obg-2D-irt" secondAttribute="bottom" constant="75" id="T8V-af-Zak"/>
                                     <constraint firstItem="8lF-D7-2Ry" firstAttribute="trailing" secondItem="obg-2D-irt" secondAttribute="trailing" constant="26" id="TQx-2g-9eJ"/>
                                     <constraint firstItem="bt4-Lh-fOH" firstAttribute="trailing" secondItem="cMK-LT-dqQ" secondAttribute="trailing" constant="155" id="Tyw-zT-cR8"/>
@@ -430,16 +417,11 @@
                                     <constraint firstItem="cMK-LT-dqQ" firstAttribute="bottom" secondItem="cjh-YE-Zwu" secondAttribute="bottom" id="WKw-Et-nal"/>
                                     <constraint firstItem="OJN-ya-NYI" firstAttribute="top" secondItem="oHd-nj-XxW" secondAttribute="bottom" constant="15" id="Wlb-99-n1j"/>
                                     <constraint firstItem="oHd-nj-XxW" firstAttribute="top" secondItem="cMK-LT-dqQ" secondAttribute="bottom" constant="25" id="asS-lF-AiM"/>
-                                    <constraint firstItem="qij-KC-ryf" firstAttribute="leading" secondItem="cjh-YE-Zwu" secondAttribute="leading" id="gAN-rn-Lia"/>
                                     <constraint firstItem="obg-2D-irt" firstAttribute="top" secondItem="oHd-nj-XxW" secondAttribute="bottom" constant="92" id="lU6-rf-Uxv"/>
                                     <constraint firstItem="OJN-ya-NYI" firstAttribute="leading" secondItem="8lF-D7-2Ry" secondAttribute="leading" constant="34" id="pzd-eR-hdJ"/>
-                                    <constraint firstItem="qij-KC-ryf" firstAttribute="top" secondItem="UuW-VT-Nm1" secondAttribute="bottom" constant="-31" id="q2t-Qm-OvA"/>
                                     <constraint firstItem="cMK-LT-dqQ" firstAttribute="leading" secondItem="cjh-YE-Zwu" secondAttribute="trailing" constant="30" id="rxZ-Ps-rX1"/>
                                     <constraint firstItem="obg-2D-irt" firstAttribute="centerX" secondItem="SQh-3k-abv" secondAttribute="centerX" id="sqP-aY-Zot"/>
                                     <constraint firstItem="obg-2D-irt" firstAttribute="centerX" secondItem="oHd-nj-XxW" secondAttribute="centerX" id="tEu-Ba-znW"/>
-                                    <constraint firstItem="qij-KC-ryf" firstAttribute="leading" secondItem="obg-2D-irt" secondAttribute="leading" id="w57-vX-ynl"/>
-                                    <constraint firstItem="cMK-LT-dqQ" firstAttribute="top" secondItem="qij-KC-ryf" secondAttribute="bottom" constant="54" id="wof-dV-lSw"/>
-                                    <constraint firstItem="qij-KC-ryf" firstAttribute="top" secondItem="bt4-Lh-fOH" secondAttribute="top" constant="127" id="yio-Tz-mm9"/>
                                     <constraint firstItem="MqR-E4-V9r" firstAttribute="top" secondItem="oHd-nj-XxW" secondAttribute="bottom" constant="67" id="zQ9-gz-7Kr"/>
                                     <constraint firstItem="8lF-D7-2Ry" firstAttribute="trailing" secondItem="MqR-E4-V9r" secondAttribute="trailing" constant="18" id="zVF-Kq-fRt"/>
                                 </constraints>
@@ -466,8 +448,7 @@
                         <outlet property="lbAnalisis" destination="OJN-ya-NYI" id="luK-Tb-nhq"/>
                         <outlet property="lbAnalisis2" destination="MqR-E4-V9r" id="osn-iC-ji5"/>
                         <outlet property="lbAnalisis3" destination="obg-2D-irt" id="vEa-aU-fJH"/>
-                        <outlet property="lbCalif" destination="UuW-VT-Nm1" id="3To-eM-Ggj"/>
-                        <outlet property="lbPrueba" destination="qij-KC-ryf" id="d6o-sQ-KYM"/>
+                        <outlet property="progressBar" destination="hS1-GD-lOu" id="4MZ-LO-zCz"/>
                         <outlet property="scrollView" destination="SQh-3k-abv" id="efS-cr-T5d"/>
                         <outlet property="tfMeta" destination="cMK-LT-dqQ" id="ZRd-gw-KPa"/>
                     </connections>

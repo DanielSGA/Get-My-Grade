@@ -12,12 +12,13 @@ class ViewControllerAnalisis: UIViewController{
      // MARK: - Variables y Outlets
     var listaMaterias = [Materia]()
     var matAnalisis : Materia!
+    var calif: CGFloat = 0
     var idMat : Int!
     var scrollOffset : CGFloat = 0
     var distance : CGFloat = 0
+    var countFired: CGFloat = 0
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var lbPrueba: UILabel!
-    @IBOutlet weak var lbCalif: UILabel!
+    @IBOutlet weak var progressBar: ProgressBar!
     @IBOutlet weak var tfMeta: UITextField!
     @IBOutlet weak var lbAnalisis: UILabel!
     @IBOutlet weak var lbAnalisis2: UILabel!
@@ -52,13 +53,31 @@ class ViewControllerAnalisis: UIViewController{
                            
         i += 1
         }
-        
-        lbPrueba.text = matAnalisis.nombre
-        lbCalif.text = String(matAnalisis.calificacion)
         lbAnalisis.isHidden = true
         lbAnalisis2.isHidden = true
         lbAnalisis3.isHidden = true
-        print(matAnalisis.total)
+        calif = CGFloat(Double(matAnalisis.calificacion) * 0.01)
+        if(calif>0)
+        {
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
+              self.countFired += 1
+              
+              DispatchQueue.main.async {
+                self.progressBar.progress = min(0.03 * self.countFired, self.calif)
+                
+                if self.progressBar.progress == self.calif {
+                  timer.invalidate()
+                }
+              }
+            }
+        }
+        else
+        {
+              DispatchQueue.main.async {
+                self.progressBar.progress = min(0.0 * self.countFired, self.calif)
+              }
+            
+        }
     }
  // MARK: -Hacer analisis
 @IBAction func HacerAnalisis(_ sender: UIButton) {
