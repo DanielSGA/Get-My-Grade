@@ -29,6 +29,7 @@
 		C15C4B7C23C10912007B5A18 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7B23C10912007B5A18 /* ProgressBar.swift */; };
 		C15C4B7E23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */; };
 		C15C4B8023C14D75007B5A18 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */; };
+		C15C4B8223C2839D007B5A18 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B8123C2839D007B5A18 /* extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		C15C4B7B23C10912007B5A18 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResultadosAnalisis.swift; sourceTree = "<group>"; };
 		C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
+		C15C4B8123C2839D007B5A18 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				43F8DE97234FF74900ABEEEE /* AppDelegate.swift */,
+				C15C4B8123C2839D007B5A18 /* extension.swift */,
 				43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */,
 				43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */,
 				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
@@ -189,6 +192,7 @@
 				C15C4B7E23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift in Sources */,
 				43F8DEAE234FF8F000ABEEEE /* TableViewControllerMateria.swift in Sources */,
 				C15C4B7C23C10912007B5A18 /* ProgressBar.swift in Sources */,
+				C15C4B8223C2839D007B5A18 /* extension.swift in Sources */,
 				43F8DEBA234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift in Sources */,
 				43A0238023821A85004FD438 /* UITableViewCellMateria.swift in Sources */,
 				43E68AE0238B20330044A2CE /* TableViewCellActividad.swift in Sources */,
