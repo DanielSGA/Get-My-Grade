@@ -34,7 +34,7 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
      // MARK: -viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tfMeta.becomeFirstResponder()
         menuButton.layer.cornerRadius = menuButton.frame.size.width / 2
         // Do any additional setup after loading the view.
         do {
@@ -44,14 +44,6 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
         catch {
             print("Error reading or decoding file")
         }
-        self.tfMeta.delegate = self
-        self.tfMeta.becomeFirstResponder()
-        let bottomLine = CALayer()
-              bottomLine.frame = CGRect(x: 0, y: tfMeta.frame.height-2, width: tfMeta.frame.width, height: 2)
-              bottomLine.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
-              tfMeta.borderStyle = .none
-              tfMeta.layer.addSublayer(bottomLine)
-        
         encontrarMateria()
         califBar()
         
@@ -98,9 +90,9 @@ func encontrarMateria()
 @IBAction func HacerAnalisis(_ sender: UIButton) {
 
     let meta = Int(tfMeta.text!)
-        
+    
         if meta == 0 || meta == nil {
-            
+            tfMeta.shake()
         }
         else{
             if meta! <= matAnalisis.calificacion {
@@ -131,6 +123,15 @@ func encontrarMateria()
          secondVC.transitioningDelegate = self
         secondVC.modalPresentationStyle = .custom
         secondVC.mostrar = resultado
+    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        let meta = Int(tfMeta.text!)
+        if meta == 0 || meta == nil {
+            return false
+        }
+        
+            return true
+        
     }
     
     

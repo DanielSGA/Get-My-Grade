@@ -33,17 +33,7 @@ class ViewControllerAgregaMateria: UIViewController,UITextFieldDelegate{
         mySwitch.addTarget(self, action: #selector(ViewControllerAgregaMateria.switchIsChanged(mySwitch:)), for: UIControl.Event.valueChanged)
         self.tfNombre.becomeFirstResponder()
         
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: tfNombre.frame.height-2, width: tfNombre.frame.width, height: 2)
-        bottomLine.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
-        tfNombre.borderStyle = .none
-        tfNombre.layer.addSublayer(bottomLine)
-        
-        let bottomLines = CALayer()
-        bottomLines.frame = CGRect(x: 0, y: tfTotal.frame.height-2, width: tfTotal.frame.width, height: 2)
-        bottomLines.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
-        tfTotal.borderStyle = .none
-        tfTotal.layer.addSublayer(bottomLines)
+   
         
         tfTotal.isHidden = true
     // Do any additional setup after loading the view.
@@ -62,12 +52,9 @@ class ViewControllerAgregaMateria: UIViewController,UITextFieldDelegate{
                }
                 else if(nom == "" && tfTotal.isHidden == true)
                     {
-                        let alert = UIAlertController(title: "Missing value", message: "Name of the course is missing", preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                            self.tfNombre.becomeFirstResponder()
-                        }
-                        alert.addAction(ok)
-                        present(alert,animated: true,completion: nil)
+                    tfNombre.shake()
+                    self.tfNombre.becomeFirstResponder()
+                     
                     }
                 else if(nom == "" && tfTotal.isHidden == false && total == "")
                     {
@@ -80,21 +67,13 @@ class ViewControllerAgregaMateria: UIViewController,UITextFieldDelegate{
                     }
             else if(nom == "" && tfTotal.isHidden == false && total != "")
                 {
-                let alert = UIAlertController(title: "Missing value", message: "Name of the course is missing", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                                                 self.tfNombre.becomeFirstResponder()
-                }
-                alert.addAction(ok)
-                present(alert,animated: true,completion: nil)
+             tfNombre.shake()
+             self.tfNombre.becomeFirstResponder()
                 }
         else if(nom != "" && tfTotal.isHidden == false && total == "")
         {
-            let alert = UIAlertController(title: "Missing value", message: "New course grade is missing", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                                         self.tfNombre.becomeFirstResponder()
-                                }
-            alert.addAction(ok)
-            present(alert,animated: true,completion: nil)
+            tfTotal.shake()
+            self.tfTotal.becomeFirstResponder()
         }
         else if (nom != "" && tfTotal.isHidden == false && total != "")
         {
@@ -121,12 +100,9 @@ class ViewControllerAgregaMateria: UIViewController,UITextFieldDelegate{
                }
                 else if(nom == "" && tfTotal.isHidden == true)
                     {
-                        let alert = UIAlertController(title: "Missing value", message: "Name of the course is missing", preferredStyle: .alert)
-                        let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                            self.tfNombre.becomeFirstResponder()
-                        }
-                        alert.addAction(ok)
-                        present(alert,animated: true,completion: nil)
+                    tfNombre.shake()
+                    self.tfNombre.becomeFirstResponder()
+                     
                     }
                 else if(nom == "" && tfTotal.isHidden == false && total == "")
                     {
@@ -139,21 +115,13 @@ class ViewControllerAgregaMateria: UIViewController,UITextFieldDelegate{
                     }
             else if(nom == "" && tfTotal.isHidden == false && total != "")
                 {
-                let alert = UIAlertController(title: "Missing value", message: "Name of the course is missing", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                                                 self.tfNombre.becomeFirstResponder()
-                }
-                alert.addAction(ok)
-                present(alert,animated: true,completion: nil)
+             tfNombre.shake()
+             self.tfNombre.becomeFirstResponder()
                 }
         else if(nom != "" && tfTotal.isHidden == false && total == "")
         {
-            let alert = UIAlertController(title: "Missing value", message: "New course grade is missing", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                                         self.tfNombre.becomeFirstResponder()
-                                }
-            alert.addAction(ok)
-            present(alert,animated: true,completion: nil)
+            tfTotal.shake()
+            self.tfTotal.becomeFirstResponder()
         }
         else if (nom != "" && tfTotal.isHidden == false && total != "")
         {

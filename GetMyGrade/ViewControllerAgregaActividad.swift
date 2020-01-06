@@ -29,17 +29,7 @@ override func viewDidLoad() {
     self.tfNombre.delegate = self
     self.tfCalificacion.delegate = self
     self.tfNombre.becomeFirstResponder()
-    let bottomLine = CALayer()
-           bottomLine.frame = CGRect(x: 0, y: tfNombre.frame.height-2, width: tfNombre.frame.width, height: 2)
-           bottomLine.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
-           tfNombre.borderStyle = .none
-           tfNombre.layer.addSublayer(bottomLine)
-           
-           let bottomLines = CALayer()
-           bottomLines.frame = CGRect(x: 0, y: tfCalificacion.frame.height-2, width: tfCalificacion.frame.width, height: 2)
-           bottomLines.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
-           tfCalificacion.borderStyle = .none
-           tfCalificacion.layer.addSublayer(bottomLines)
+ 
     }
 // MARK: - Guardar datos escritos
 
@@ -89,21 +79,14 @@ override func viewDidLoad() {
         }
         else if(nom != "" && cal == nil)
         {
-            let alert = UIAlertController(title: "Missing value", message: "Grade of the assignment is missing", preferredStyle: .alert)
-                   let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                       self.tfCalificacion.becomeFirstResponder()
-                   }
-                   alert.addAction(ok)
-                   present(alert,animated: true,completion: nil)
+        tfCalificacion.shake()
+        self.tfCalificacion.becomeFirstResponder()
+                  
         }
         else if(nom == "" && cal != nil)
         {
-            let alert = UIAlertController(title: "Missing value", message: "Name of the assignment is missing", preferredStyle: .alert)
-                   let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                       self.tfNombre.becomeFirstResponder()
-                   }
-                   alert.addAction(ok)
-                   present(alert,animated: true,completion: nil)
+        tfNombre.shake()
+        self.tfNombre.becomeFirstResponder()
         }
     }
     

@@ -30,6 +30,7 @@
 		C15C4B7E23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */; };
 		C15C4B8023C14D75007B5A18 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */; };
 		C15C4B8223C2839D007B5A18 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B8123C2839D007B5A18 /* extension.swift */; };
+		C15C4B8423C3A2E3007B5A18 /* customUITextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B8323C3A2E2007B5A18 /* customUITextfield.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResultadosAnalisis.swift; sourceTree = "<group>"; };
 		C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		C15C4B8123C2839D007B5A18 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		C15C4B8323C3A2E2007B5A18 /* customUITextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customUITextfield.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				43F8DE97234FF74900ABEEEE /* AppDelegate.swift */,
+				C15C4B8323C3A2E2007B5A18 /* customUITextfield.swift */,
 				C15C4B8123C2839D007B5A18 /* extension.swift */,
 				43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */,
 				43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */,
@@ -201,6 +204,7 @@
 				C15C4B8023C14D75007B5A18 /* CircularTransition.swift in Sources */,
 				A2FF36FA2371D4AD00F34C67 /* ViewControllerAnalisis.swift in Sources */,
 				C11407F92352B83700C11473 /* Categoria.swift in Sources */,
+				C15C4B8423C3A2E3007B5A18 /* customUITextfield.swift in Sources */,
 				43F8DE98234FF74900ABEEEE /* AppDelegate.swift in Sources */,
 				43E68ADE238B15840044A2CE /* TableViewCellCategoria.swift in Sources */,
 				43F8DE9A234FF74900ABEEEE /* SceneDelegate.swift in Sources */,

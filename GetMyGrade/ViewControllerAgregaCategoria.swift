@@ -32,17 +32,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
         self.addDoneButtonOnKeyboard()
         self.tfNombre.becomeFirstResponder()
         
-        let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: 0, y: tfNombre.frame.height-2, width: tfNombre.frame.width, height: 2)
-        bottomLine.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
-        tfNombre.borderStyle = .none
-        tfNombre.layer.addSublayer(bottomLine)
         
-        let bottomLines = CALayer()
-        bottomLines.frame = CGRect(x: 0, y: tfPorcentaje.frame.height-2, width: tfPorcentaje.frame.width, height: 2)
-        bottomLines.backgroundColor = UIColor.init(red: 152/255, green: 25/255, blue: 25/255, alpha: 1).cgColor
-        tfPorcentaje.borderStyle = .none
-        tfPorcentaje.layer.addSublayer(bottomLines)
         
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
@@ -149,21 +139,14 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
             }
             else if(nom == "" && porc != nil)
             {
-                let alert = UIAlertController(title: "Missing value", message: "Name of the category is missing", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                    self.tfNombre.becomeFirstResponder()
-                }
-                alert.addAction(ok)
-                present(alert,animated: true,completion: nil)
+            tfNombre.shake()
+            self.tfNombre.becomeFirstResponder()
+            
             }
              else if(nom != "" && porc == nil)
             {
-                let alert = UIAlertController(title: "Missing value", message: "Percentage of the category is missing", preferredStyle: .alert)
-                let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                    self.tfPorcentaje.becomeFirstResponder()
-                }
-                alert.addAction(ok)
-                present(alert,animated: true,completion: nil)
+            tfPorcentaje.shake()
+            self.tfPorcentaje.becomeFirstResponder()
             }
          
     }
