@@ -105,6 +105,7 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.title = "Courses"
+        
         leerArchivos()
         actualizarCalif()
        
