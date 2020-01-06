@@ -11,10 +11,13 @@ import UIKit
 class ViewControllerResultadosAnalisis: UIViewController {
 
     @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var imagen: UIImageView!
+    @IBOutlet weak var label1: UILabel!
+    var mostrar: String!
     override func viewDidLoad() {
         super.viewDidLoad()
          dismissButton.layer.cornerRadius = dismissButton.frame.size.width / 2
-        // Do any additional setup after loading the view.
+        label1.text = mostrar
     }
     
     @IBAction func dismissSecondVC(_ sender: Any) {

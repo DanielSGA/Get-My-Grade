@@ -67,19 +67,9 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
         let pathArchivo = url.appendingPathComponent("Actividades.plist")
         return pathArchivo
     }
-    // MARK: - viewDidload and will
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    func leerArchivos()
+    {
        
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        self.title = "Courses"
-        
         do {
             let data = try Data.init(contentsOf: dataFileUrl())
             listaMaterias = try PropertyListDecoder().decode([Materia].self, from: data)
@@ -102,33 +92,27 @@ class TableViewControllerMateria: UITableViewController, protocoloAgregaMateria 
                    print("Error reading or decoding file")
                }
         
+    }
+    // MARK: - viewDidload and will
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+       
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.title = "Courses"
+        leerArchivos()
         actualizarCalif()
        
        
     }
     override func viewWillAppear(_ animated: Bool) {
           super.viewWillAppear(animated)
-         do {
-                    let data = try Data.init(contentsOf: dataFileUrl())
-                    listaMaterias = try PropertyListDecoder().decode([Materia].self, from: data)
-                }
-                catch {
-                    print("Error reading or decoding file")
-                }
-        do {
-            let data = try Data.init(contentsOf: dataFileUrl2())
-            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
-        }
-        catch {
-            print("Error reading or decoding file")
-        }
-        do {
-                        let data = try Data.init(contentsOf: dataFileUrl3())
-                        listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
-            }
-            catch {
-                print("Error reading or decoding file")
-                    }
+          leerArchivos()
           actualizarCalif()
           guardaMaterias()
           tableView.reloadData()

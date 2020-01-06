@@ -283,7 +283,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDX-Qh-bDu">
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDX-Qh-bDu" customClass="DesignableButton" customModule="GetMyGrade" customModuleProvider="target">
                                             <rect key="frame" x="251" y="0.0" width="124" height="84"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.7843137255" green="0.2250134111" blue="0.112372185" alpha="0.47388698629999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -291,6 +291,11 @@
                                             <color key="tintColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <inset key="imageEdgeInsets" minX="92" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <state key="normal" title="EDIT" image="pencil" catalog="system"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="0.0"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="editar:" destination="IUp-TQ-CJv" eventType="touchUpInside" id="0kl-Qu-mJn"/>
                                             </connections>
@@ -318,6 +323,11 @@
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="IUp-TQ-CJv" id="hMo-kU-Tyh"/>
                             <outlet property="delegate" destination="IUp-TQ-CJv" id="SWv-ls-SiK"/>
@@ -394,50 +404,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-3k-abv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Meta:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjh-YE-Zwu">
-                                        <rect key="frame" x="26" y="212" width="67" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actualmente llevas una calificacion de xx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OJN-ya-NYI">
-                                        <rect key="frame" x="34" y="352" width="323" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Y buscas llegar a una calificacion de xx" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MqR-E4-V9r">
-                                        <rect key="frame" x="34" y="404" width="323" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Felicidades! Ya alcanzaste tu meta!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obg-2D-irt">
-                                        <rect key="frame" x="26" y="429" width="268" height="87"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="70" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMK-LT-dqQ">
-                                        <rect key="frame" x="119" y="216" width="123" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hS1-GD-lOu" customClass="ProgressBar" customModule="GetMyGrade" customModuleProvider="target">
-                                        <rect key="frame" x="67" y="33" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                                <color key="value" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oHd-nj-XxW">
                                         <rect key="frame" x="157" y="289" width="46" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -452,6 +418,29 @@
                                             <segue destination="Bw9-Hn-lUa" kind="presentation" identifier="resultados" id="0jX-9d-hFC"/>
                                         </connections>
                                     </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="70" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMK-LT-dqQ">
+                                        <rect key="frame" x="119" y="216" width="123" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hS1-GD-lOu" customClass="ProgressBar" customModule="GetMyGrade" customModuleProvider="target">
+                                        <rect key="frame" x="67" y="33" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                <color key="value" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Goal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjh-YE-Zwu">
+                                        <rect key="frame" x="43" y="217" width="62" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="8lF-D7-2Ry"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="bt4-Lh-fOH"/>
@@ -473,9 +462,6 @@
                     <tabBarItem key="tabBarItem" title="Item" id="FRS-ue-bLM"/>
                     <navigationItem key="navigationItem" id="JZV-SI-2c0"/>
                     <connections>
-                        <outlet property="lbAnalisis" destination="OJN-ya-NYI" id="luK-Tb-nhq"/>
-                        <outlet property="lbAnalisis2" destination="MqR-E4-V9r" id="osn-iC-ji5"/>
-                        <outlet property="lbAnalisis3" destination="obg-2D-irt" id="vEa-aU-fJH"/>
                         <outlet property="menuButton" destination="oHd-nj-XxW" id="Z0L-sY-5WA"/>
                         <outlet property="progressBar" destination="hS1-GD-lOu" id="4MZ-LO-zCz"/>
                         <outlet property="scrollView" destination="SQh-3k-abv" id="efS-cr-T5d"/>
@@ -483,11 +469,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIw-5d-rhM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="tpt-jZ-kU5">
-                    <connections>
-                        <action selector="quitaTeclado" destination="lPX-3B-zMb" id="F5l-gc-X2Y"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tpt-jZ-kU5"/>
             </objects>
             <point key="canvasLocation" x="-847.20000000000005" y="-400.74962518740631"/>
         </scene>
@@ -557,7 +539,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TY3-gk-Kpp">
-                                <rect key="frame" x="164" y="386" width="46" height="43"/>
+                                <rect key="frame" x="164" y="473" width="46" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
@@ -568,6 +550,17 @@
                                     <action selector="dismissSecondVC:" destination="Bw9-Hn-lUa" eventType="touchUpInside" id="CLT-5a-e57"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drl-FS-tof">
+                                <rect key="frame" x="65" y="57" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjf-jz-WMz">
+                                <rect key="frame" x="65" y="261" width="240" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="iiF-RX-qCI"/>
@@ -575,11 +568,13 @@
                     <navigationItem key="navigationItem" id="lx2-BG-CW7"/>
                     <connections>
                         <outlet property="dismissButton" destination="TY3-gk-Kpp" id="n3h-RX-jWu"/>
+                        <outlet property="imagen" destination="Drl-FS-tof" id="34Y-Es-6iS"/>
+                        <outlet property="label1" destination="rjf-jz-WMz" id="Opb-Pz-ZXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cf-aQ-tK5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-847" y="-1133"/>
+            <point key="canvasLocation" x="-847.20000000000005" y="-1134.7826086956522"/>
         </scene>
         <!--View Controller Agrega Materia-->
         <scene sceneID="GAf-Mb-c8Z">

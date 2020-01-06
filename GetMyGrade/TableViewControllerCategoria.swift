@@ -55,6 +55,24 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         let pathArchivo = url.appendingPathComponent("Actividades.plist")
         return pathArchivo
     }
+    func leerArchivos()
+    {
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl())
+            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+        
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl2())
+            listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
+    }
     // MARK: - viewDidload and will
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,23 +84,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
       
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = nomMateria + " - Categories"
-       
-        do {
-            let data = try Data.init(contentsOf: dataFileUrl())
-            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
-        }
-        catch {
-            print("Error reading or decoding file")
-        }
-        
-        do {
-            let data = try Data.init(contentsOf: dataFileUrl2())
-            listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
-        }
-        catch {
-            print("Error reading or decoding file")
-        }
-        
+        leerArchivos()
         actualizarCalif()
         actualizarCategorias()
         
@@ -90,21 +92,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        do {
-            let data = try Data.init(contentsOf: dataFileUrl())
-            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
-        }
-        catch {
-            print("Error reading or decoding file")
-        }
-        
-        do {
-            let data = try Data.init(contentsOf: dataFileUrl2())
-            listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
-        }
-        catch {
-            print("Error reading or decoding file")
-        }
+        leerArchivos()
         actualizarCalif()
         actualizarCategorias()
         guardaCategorias()
