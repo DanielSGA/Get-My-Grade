@@ -18,9 +18,9 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
     var distance : CGFloat = 0
     var countFired: CGFloat = 0
     var resultado: String!
+    var num: Int!
     let transition = CircularTransition()
     @IBOutlet weak var scrollView: UIScrollView!
-    
     @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var progressBar: ProgressBar!
     @IBOutlet weak var tfMeta: UITextField!
@@ -97,7 +97,8 @@ func encontrarMateria()
         else{
             if meta! <= matAnalisis.calificacion {
                 
-                resultado = "Felicidades! Ya alcanzaste tu meta!"
+                resultado = "Congratulations! You already achieved your goal !"
+                num = 1
             }
                 
             else {
@@ -106,12 +107,14 @@ func encontrarMateria()
                 let puntosRestantes = matAnalisis.total - matAnalisis.ponderacion
                 
                 if puntosRestantes < puntosParaMeta {
-                    resultado = "Lo sentimos mucho, con los puntos que quedan ya no podras alcanzar tu meta"
+                    resultado = "We are sorry, with the remaning course points its imposible to achieve your goal"
+                    num = 2
                  
                 }
                 else{
                     let prom = (puntosParaMeta * 100)/puntosRestantes
-                    resultado = "En el resto de las actividades de la materia, necesitas obtener un promedio de " + String(prom) + " para llegar a tu meta."
+                    resultado = "On the remaining assignments of the course you need an average of " + String(prom) + " to reach your goal "
+                    num = 3
                 }
             }
         }
@@ -123,6 +126,7 @@ func encontrarMateria()
          secondVC.transitioningDelegate = self
         secondVC.modalPresentationStyle = .custom
         secondVC.mostrar = resultado
+        secondVC.numFoto = num
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let meta = Int(tfMeta.text!)

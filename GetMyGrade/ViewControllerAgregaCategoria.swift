@@ -17,12 +17,13 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
     var idMateria : Int!
     var scrollOffset : CGFloat = 0
     var distance : CGFloat = 0
+    var sState : Bool = false
     var listaCategorias = [Categoria]()
     var listaMaterias = [Materia]()
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tfNombre: UITextField!
     @IBOutlet weak var tfPorcentaje: UITextField!
-    
+    @IBOutlet weak var diff: UISwitch!
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -31,7 +32,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
         self.tfPorcentaje.delegate = self
         self.addDoneButtonOnKeyboard()
         self.tfNombre.becomeFirstResponder()
-        
+        diff.addTarget(self, action: #selector(ViewControllerAgregaMateria.switchIsChanged(mySwitch:)), for: UIControl.Event.valueChanged)
         
         
         do {
@@ -61,6 +62,15 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
          let pathArchivo = url.appendingPathComponent("Materias.plist")
          return pathArchivo
      }
+        // MARK: - Switch
+        @objc func switchIsChanged(mySwitch: UISwitch) {
+        if mySwitch.isOn {
+           sState = true
+           
+        } else {
+         sState = false
+        }
+    }
 // MARK: -Acumulado de Porcentaje
     func calcularPorc() -> Int {
         var acum = 0
@@ -109,7 +119,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
                    let aceptar = UIAlertAction(title: "Accept", style: .default){
                        (action) in
                            let number = Int.random(in: 0 ... 10000)
-                       let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0)
+                    let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: self.idMateria, calificacion: 0,diffPond: self.sState)
                        self.delegado.agregaCategoria(cat: unaCat)
                        self.delegado.guardaCategorias()
                        self.navigationController?.popViewController(animated: true)
@@ -121,7 +131,7 @@ class ViewControllerAgregaCategoria: UIViewController,UITextFieldDelegate {
            if nom != "", porc != nil , porcAcum<=total
                   {
                       let number = Int.random(in: 0 ... 10000)
-                      let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0)
+                      let unaCat = Categoria(nombre:nom!, ponderacion: porc!, id: number, idMateria: idMateria, calificacion: 0,diffPond: sState)
                       delegado.agregaCategoria(cat: unaCat)
                       delegado.guardaCategorias()
                       navigationController?.popViewController(animated: true)

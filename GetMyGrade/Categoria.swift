@@ -14,13 +14,15 @@ class Categoria: Codable {
     var id: Int = 0
     var idMateria: Int = 0
     var calificacion: Int = 0
-    init(nombre:String,ponderacion:Int,id:Int,idMateria: Int,calificacion:Int)
+    var diffPond: Bool = false
+    init(nombre:String,ponderacion:Int,id:Int,idMateria: Int,calificacion:Int,diffPond:Bool)
     {
         self.nombre=nombre
         self.ponderacion=ponderacion
         self.id=id
         self.idMateria=idMateria
         self.calificacion=calificacion
+        self.diffPond=diffPond
     }
 
 }
