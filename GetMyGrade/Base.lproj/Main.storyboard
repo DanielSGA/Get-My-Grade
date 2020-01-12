@@ -274,7 +274,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <segue destination="BXb-AX-f37" kind="show" identifier="footer" id="tVo-4t-EJh"/>
+                                        <action selector="addAssignment:" destination="IUp-TQ-CJv" eventType="touchUpInside" id="T5C-5d-I5n"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -341,10 +341,14 @@
                     <navigationItem key="navigationItem" id="mPr-BT-n68">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="C0k-8g-w7s"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="3YW-tj-X7N" kind="show" identifier="addPlus" id="rGs-Ho-Ydx"/>
+                        <segue destination="BXb-AX-f37" kind="show" identifier="addNormal" id="XAv-n6-M68"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQn-Sr-bje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1717.5999999999999" y="375.56221889055473"/>
+            <point key="canvasLocation" x="1718" y="340"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1wt-EP-p75">
@@ -828,6 +832,27 @@
                 <tapGestureRecognizer id="z3Q-27-6Sk"/>
             </objects>
             <point key="canvasLocation" x="908" y="-400.74962518740631"/>
+        </scene>
+        <!--View Controller Agrega Act2-->
+        <scene sceneID="OPB-Kc-OHw">
+            <objects>
+                <viewController id="3YW-tj-X7N" customClass="ViewControllerAgregaAct2" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CWL-Zo-hkh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <viewLayoutGuide key="safeArea" id="fT8-3O-7hu"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="EFF-gs-5dk" appends="YES" id="N9K-W0-V7F"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="VLt-aS-1B5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xDY-BE-zgT" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EFF-gs-5dk"/>
+            </objects>
+            <point key="canvasLocation" x="2420" y="-396.25187406296857"/>
         </scene>
     </scenes>
     <resources>

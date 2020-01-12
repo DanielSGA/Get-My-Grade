@@ -31,6 +31,7 @@
 		C15C4B8023C14D75007B5A18 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */; };
 		C15C4B8223C2839D007B5A18 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B8123C2839D007B5A18 /* extension.swift */; };
 		C15C4B8423C3A2E3007B5A18 /* customUITextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B8323C3A2E2007B5A18 /* customUITextfield.swift */; };
+		C15C4B8623CABE31007B5A18 /* ViewControllerAgregaAct2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15C4B8523CABE30007B5A18 /* ViewControllerAgregaAct2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		C15C4B8123C2839D007B5A18 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		C15C4B8323C3A2E2007B5A18 /* customUITextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customUITextfield.swift; sourceTree = "<group>"; };
+		C15C4B8523CABE30007B5A18 /* ViewControllerAgregaAct2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAgregaAct2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */,
 				43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */,
 				43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */,
+				C15C4B8523CABE30007B5A18 /* ViewControllerAgregaAct2.swift */,
 				43F8DEAD234FF8EF00ABEEEE /* TableViewControllerMateria.swift */,
 				43F8DEAF234FF91B00ABEEEE /* TableViewControllerCategoria.swift */,
 				43F8DEB1234FF92F00ABEEEE /* TableViewControllerActividad.swift */,
@@ -213,6 +216,7 @@
 				43F8DEB8234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift in Sources */,
 				C11407F72352B7E100C11473 /* Materia.swift in Sources */,
 				C11407FB2352B92500C11473 /* Actividad.swift in Sources */,
+				C15C4B8623CABE31007B5A18 /* ViewControllerAgregaAct2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,13 +9,15 @@
 import UIKit
 
 
-class TableViewControllerActividad: UITableViewController, protocoloAgregaActividad {
+class TableViewControllerActividad: UITableViewController, protocoloAgregaActividad{
      // MARK: - Variables
     var idCategoria: Int!
     var nomMateria: String!
     var nomCategoria: String!
     var listaActividades = [Actividad]()
     var listaActividadesMostrar = [Actividad]()
+    var listaCategorias = [Categoria]()
+    var cat: Categoria!
      // MARK: - Guardar archivos
     func guardaActividades() {
         
@@ -39,14 +41,16 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         let pathArchivo = url.appendingPathComponent("Actividades.plist")
         return pathArchivo
     }
+    func dataFileUrl() -> URL {
+           let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+           let pathArchivo = url.appendingPathComponent("Categorias.plist")
+           return pathArchivo
+       }
+       
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = nomMateria + " - " + nomCategoria
@@ -58,7 +62,26 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         catch {
             print("Error reading or decoding file")
         }
+        do {
+            let data = try Data.init(contentsOf: dataFileUrl())
+            listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
+        }
+        catch {
+            print("Error reading or decoding file")
+        }
         actualizarActividades()
+    }
+    func encontrarCat()
+    {
+        var i=0
+        while(listaCategorias.count>i)
+        {
+            if(listaCategorias[i].id == idCategoria)
+            {
+                cat = listaCategorias[i]
+            }
+            i+=1
+        }
     }
     // MARK: - Editar calificacion
     @IBAction func editar(_ sender: UIButton) {
@@ -168,13 +191,34 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier=="footer")
+        if(segue.identifier=="addNormal")
         {
             let viewAgregar = segue.destination as! ViewControllerAgregaActividad
             viewAgregar.delegado = self
             viewAgregar.idCategoria = idCategoria
             setEditing(false, animated: true)
+        }
+        else
+        {
+         let viewAgregar = segue.destination as! ViewControllerAgregaAct2
+        viewAgregar.idCategoria = idCategoria
+        setEditing(false, animated: true)
+            print("entro2")
+        }
+    }
+    
+    @IBAction func addAssignment(_ sender: Any) {
+        encontrarCat()
+        if(cat.diffPond == true)
+        {
+            self.performSegue(withIdentifier: "addPlus", sender: nil)
+            print("entro")
+        }
+        else
+        {
+            self.performSegue(withIdentifier: "addNormal", sender: nil)
         }
     }
     // MARK: - Restringir rotacion
