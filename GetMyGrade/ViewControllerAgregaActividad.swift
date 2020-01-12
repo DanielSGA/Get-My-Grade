@@ -49,7 +49,7 @@ override func viewDidLoad() {
                 let aceptar = UIAlertAction(title: "Aceptar", style: .default){
                     (action) in
                     let number = Int.random(in: 0 ... 10000)
-                    let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: self.idCategoria)
+                    let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: self.idCategoria, ponderacion: 0)
                     self.delegado.agregaActividad(act: unAct)
                     self.delegado.guardaActividades()
                     self.navigationController?.popViewController(animated: true)
@@ -62,7 +62,7 @@ override func viewDidLoad() {
             {
                
                 let number = Int.random(in: 0 ... 1000)
-                let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: idCategoria)
+                let unAct = Actividad(nombre:nom!, calificacion: cal!, id: number, idCategoria: idCategoria,ponderacion: 0)
                 delegado.agregaActividad(act: unAct)
                 delegado.guardaActividades()
                 navigationController?.popViewController(animated: true)

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TableViewControllerActividad: UITableViewController, protocoloAgregaActividad{
+class TableViewControllerActividad: UITableViewController, protocoloAgregaActividad,protocoloAgregaActividad2{
      // MARK: - Variables
     var idCategoria: Int!
     var nomMateria: String!
@@ -203,9 +203,10 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         else
         {
          let viewAgregar = segue.destination as! ViewControllerAgregaAct2
+        viewAgregar.delegado = self
         viewAgregar.idCategoria = idCategoria
         setEditing(false, animated: true)
-            print("entro2")
+            
         }
     }
     
@@ -214,7 +215,7 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
         if(cat.diffPond == true)
         {
             self.performSegue(withIdentifier: "addPlus", sender: nil)
-            print("entro")
+            
         }
         else
         {

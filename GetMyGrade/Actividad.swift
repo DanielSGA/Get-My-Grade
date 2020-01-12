@@ -13,11 +13,13 @@ class Actividad: Codable {
     var calificacion: Int = 0
     var id : Int = 0
     var idCategoria: Int = 0
-    init(nombre:String,calificacion:Int,id:Int,idCategoria: Int)
+    var ponderacion: Int = 0
+    init(nombre:String,calificacion:Int,id:Int,idCategoria: Int,ponderacion: Int)
     {
         self.nombre=nombre
         self.calificacion=calificacion
         self.id=id
         self.idCategoria=idCategoria
+        self.ponderacion=ponderacion
     }
 }
