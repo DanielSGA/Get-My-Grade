@@ -70,12 +70,9 @@ override func viewDidLoad() {
         }
         else if(nom == "" && cal == nil)
         {
-            let alert = UIAlertController(title: "Missing values", message: "Both values are missing", preferredStyle: .alert)
-            let ok = UIAlertAction(title: "Ok", style: .default) { (action) in
-                self.tfNombre.becomeFirstResponder()
-            }
-            alert.addAction(ok)
-            present(alert,animated: true,completion: nil)
+            tfNombre.shake()
+            tfCalificacion.shake()
+            self.tfNombre.becomeFirstResponder()
         }
         else if(nom != "" && cal == nil)
         {
