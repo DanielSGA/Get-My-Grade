@@ -134,7 +134,8 @@ class ViewControllerAgregaAct2: UIViewController,UITextFieldDelegate {
                 let doneToolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
                 doneToolbar.barStyle       = UIBarStyle.default
         let flexSpace              = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem  = UIBarButtonItem(title: "Next", style: UIBarButtonItem.Style.done, target: self, action: #selector(moveResponder))
+        let done: UIBarButtonItem  = UIBarButtonItem(title: "Next", style: UIBarButtonItem.Style.done, target: self, action: #selector(moveResponder
+            ))
     
                 var items = [UIBarButtonItem]()
                 items.append(flexSpace)
