@@ -177,27 +177,8 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             
             i += 1
         }
-       actualizarCalifPond()
     }
-    func actualizarCalifPond()
-    {
-        var i = 0
-        var j = 0
-        var suma = 0
-        while (listaCategorias.count > i){
-            j = 0
-            suma = 0
-            while (listaActividades.count > j) {
-                if (listaCategorias[i].id == listaActividades[j].idCategoria && listaCategorias[i].diffPond)
-                {
-                    suma += ((listaActividades[j].calificacion * listaActividades[j].ponderacion)/100)
-                }
-                j+=1
-                listaCategorias[i].calificacion = suma
-                i += 1
-            }
-        }
-    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

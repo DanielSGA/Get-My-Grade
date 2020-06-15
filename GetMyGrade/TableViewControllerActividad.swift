@@ -147,15 +147,10 @@ class TableViewControllerActividad: UITableViewController, protocoloAgregaActivi
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellActividad
         cell.lbNombre.text=listaActividadesMostrar[indexPath.row].nombre
-        cell.btEditar.tag = listaActividadesMostrar[indexPath.row].id
-        if(listaActividadesMostrar[indexPath.row].ponderacion == 0)
-        {
         cell.lbCalif.text = String(listaActividadesMostrar[indexPath.row].calificacion)
-        }
-        else
-        {
-          cell.lbCalif?.text = String((listaActividadesMostrar[indexPath.row].calificacion*listaActividadesMostrar[indexPath.row].ponderacion)/100) + " / " + String(listaActividadesMostrar[indexPath.row].ponderacion)
-        }
+        
+        cell.btEditar.tag = listaActividadesMostrar[indexPath.row].id
+
         
         return cell
         
