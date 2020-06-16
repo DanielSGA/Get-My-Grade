@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CCA554723669852004C8E32 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCA554623669852004C8E32 /* StartView.swift */; };
 		43A0238023821A85004FD438 /* UITableViewCellMateria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */; };
 		43E68ADE238B15840044A2CE /* TableViewCellCategoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */; };
 		43E68AE0238B20330044A2CE /* TableViewCellActividad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */; };
@@ -35,7 +34,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CCA554623669852004C8E32 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellMateria.swift; sourceTree = "<group>"; };
 		43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellCategoria.swift; sourceTree = "<group>"; };
 		43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellActividad.swift; sourceTree = "<group>"; };
@@ -94,34 +92,89 @@
 		43F8DE96234FF74900ABEEEE /* GetMyGrade */ = {
 			isa = PBXGroup;
 			children = (
-				43F8DE97234FF74900ABEEEE /* AppDelegate.swift */,
-				C15C4B8323C3A2E2007B5A18 /* customUITextfield.swift */,
-				C15C4B8123C2839D007B5A18 /* extension.swift */,
-				43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */,
-				43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */,
-				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
+				C1D6EA8424984FF500E3D304 /* Cells */,
+				C1D6EA8324984FBA00E3D304 /* Clases Front */,
 				43F8DE9D234FF74900ABEEEE /* Main.storyboard */,
-				C15C4B7B23C10912007B5A18 /* ProgressBar.swift */,
-				C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */,
-				43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */,
-				0CCA554623669852004C8E32 /* StartView.swift */,
-				C11407F62352B7E100C11473 /* Materia.swift */,
-				C11407F82352B83700C11473 /* Categoria.swift */,
-				C11407FA2352B92500C11473 /* Actividad.swift */,
-				43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */,
-				43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */,
-				43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */,
-				C15C4B8523CABE30007B5A18 /* ViewControllerAgregaAct2.swift */,
-				43F8DEAD234FF8EF00ABEEEE /* TableViewControllerMateria.swift */,
-				43F8DEAF234FF91B00ABEEEE /* TableViewControllerCategoria.swift */,
-				43F8DEB1234FF92F00ABEEEE /* TableViewControllerActividad.swift */,
-				A2FF36F92371D4AD00F34C67 /* ViewControllerAnalisis.swift */,
-				C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */,
+				C1D6EA7F24984F6100E3D304 /* Categorias */,
+				C1D6EA852498504B00E3D304 /* Delegate */,
+				C1D6EA7E24984F2D00E3D304 /* Materias */,
+				C1D6EA7D24984EDB00E3D304 /* Actividades */,
+				C1D6EA8024984F8400E3D304 /* Analisis */,
 				43F8DEA0234FF74B00ABEEEE /* Assets.xcassets */,
 				43F8DEA2234FF74B00ABEEEE /* LaunchScreen.storyboard */,
 				43F8DEA5234FF74B00ABEEEE /* Info.plist */,
 			);
 			path = GetMyGrade;
+			sourceTree = "<group>";
+		};
+		C1D6EA7D24984EDB00E3D304 /* Actividades */ = {
+			isa = PBXGroup;
+			children = (
+				43F8DEB1234FF92F00ABEEEE /* TableViewControllerActividad.swift */,
+				43F8DEB9234FFCC100ABEEEE /* ViewControllerAgregaActividad.swift */,
+				C15C4B8523CABE30007B5A18 /* ViewControllerAgregaAct2.swift */,
+				C11407FA2352B92500C11473 /* Actividad.swift */,
+			);
+			path = Actividades;
+			sourceTree = "<group>";
+		};
+		C1D6EA7E24984F2D00E3D304 /* Materias */ = {
+			isa = PBXGroup;
+			children = (
+				43F8DEAD234FF8EF00ABEEEE /* TableViewControllerMateria.swift */,
+				43F8DEB5234FFC7600ABEEEE /* ViewControllerAgregaMateria.swift */,
+				C11407F62352B7E100C11473 /* Materia.swift */,
+			);
+			path = Materias;
+			sourceTree = "<group>";
+		};
+		C1D6EA7F24984F6100E3D304 /* Categorias */ = {
+			isa = PBXGroup;
+			children = (
+				C11407F82352B83700C11473 /* Categoria.swift */,
+				43F8DEAF234FF91B00ABEEEE /* TableViewControllerCategoria.swift */,
+				43F8DEB7234FFCB300ABEEEE /* ViewControllerAgregaCategoria.swift */,
+			);
+			path = Categorias;
+			sourceTree = "<group>";
+		};
+		C1D6EA8024984F8400E3D304 /* Analisis */ = {
+			isa = PBXGroup;
+			children = (
+				A2FF36F92371D4AD00F34C67 /* ViewControllerAnalisis.swift */,
+				C15C4B7D23C14B80007B5A18 /* ViewControllerResultadosAnalisis.swift */,
+			);
+			path = Analisis;
+			sourceTree = "<group>";
+		};
+		C1D6EA8324984FBA00E3D304 /* Clases Front */ = {
+			isa = PBXGroup;
+			children = (
+				C15C4B8123C2839D007B5A18 /* extension.swift */,
+				C15C4B8323C3A2E2007B5A18 /* customUITextfield.swift */,
+				C15C4B7B23C10912007B5A18 /* ProgressBar.swift */,
+				C15C4B7F23C14D75007B5A18 /* CircularTransition.swift */,
+			);
+			path = "Clases Front";
+			sourceTree = "<group>";
+		};
+		C1D6EA8424984FF500E3D304 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				43E68ADF238B20330044A2CE /* TableViewCellActividad.swift */,
+				43E68ADD238B15840044A2CE /* TableViewCellCategoria.swift */,
+				43A0237F23821A85004FD438 /* UITableViewCellMateria.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C1D6EA852498504B00E3D304 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				43F8DE99234FF74900ABEEEE /* SceneDelegate.swift */,
+				43F8DE97234FF74900ABEEEE /* AppDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,7 +256,6 @@
 				43A0238023821A85004FD438 /* UITableViewCellMateria.swift in Sources */,
 				43E68AE0238B20330044A2CE /* TableViewCellActividad.swift in Sources */,
 				43F8DEB2234FF92F00ABEEEE /* TableViewControllerActividad.swift in Sources */,
-				0CCA554723669852004C8E32 /* StartView.swift in Sources */,
 				C15C4B8023C14D75007B5A18 /* CircularTransition.swift in Sources */,
 				A2FF36FA2371D4AD00F34C67 /* ViewControllerAnalisis.swift in Sources */,
 				C11407F92352B83700C11473 /* Categoria.swift in Sources */,

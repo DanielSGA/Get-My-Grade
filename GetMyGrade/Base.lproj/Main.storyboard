@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="idZ-EX-KuH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SoV-h2-pQW">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
             <objects>
                 <tableViewController id="LYn-Sb-mGQ" customClass="TableViewControllerMateria" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="c4E-Uv-MA0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="GeT-ZB-JrF">
@@ -115,7 +115,7 @@
                 <navigationController toolbarHidden="NO" id="SoV-h2-pQW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="edH-2O-Lr7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AWw-a9-90p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.5" green="0.1209798913" blue="0.064635229190000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -136,7 +136,7 @@
             <objects>
                 <tableViewController id="YC8-6Z-4q3" customClass="TableViewControllerCategoria" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yu0-T2-hs9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="XNU-e9-uIe">
@@ -240,7 +240,7 @@
             <objects>
                 <tableViewController id="IUp-TQ-CJv" customClass="TableViewControllerActividad" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2qY-4e-KJ2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="tGh-uH-959">
@@ -350,64 +350,12 @@
             </objects>
             <point key="canvasLocation" x="1718" y="340"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="1wt-EP-p75">
-            <objects>
-                <viewController id="loW-PC-sje" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Z0q-fR-eV2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vys-8A-hQi">
-                                <rect key="frame" x="0.0" y="104.5" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uy-8H-Amv">
-                                <rect key="frame" x="55" y="175" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="credits" translatesAutoresizingMaskIntoConstraints="NO" id="blS-AP-ffZ">
-                                <rect key="frame" x="0.0" y="134.5" width="375" height="375"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="375" id="ViE-yW-S07"/>
-                                    <constraint firstAttribute="width" constant="375" id="ttM-KY-ciS"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Créditos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-jQ-znN">
-                                <rect key="frame" x="111" y="81" width="153.5" height="45.5"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.54234975576400757" green="0.064849339425563812" blue="0.0077587259002029896" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="iKs-jQ-znN" firstAttribute="centerX" secondItem="Z0q-fR-eV2" secondAttribute="centerX" id="1Ms-ew-eOf"/>
-                            <constraint firstItem="vys-8A-hQi" firstAttribute="top" secondItem="Z0q-fR-eV2" secondAttribute="top" constant="104.5" id="2rm-a9-dE2"/>
-                            <constraint firstItem="vys-8A-hQi" firstAttribute="leading" secondItem="blS-AP-ffZ" secondAttribute="leading" id="A2J-cj-5B2"/>
-                            <constraint firstItem="blS-AP-ffZ" firstAttribute="top" secondItem="iKs-jQ-znN" secondAttribute="bottom" constant="8" symbolic="YES" id="UI0-lh-Bix"/>
-                            <constraint firstItem="iKs-jQ-znN" firstAttribute="top" secondItem="k7e-jZ-Cp3" secondAttribute="top" constant="81" id="aE3-0P-PNb"/>
-                            <constraint firstItem="blS-AP-ffZ" firstAttribute="centerX" secondItem="iKs-jQ-znN" secondAttribute="centerX" id="m8R-uI-s56"/>
-                            <constraint firstItem="3uy-8H-Amv" firstAttribute="leading" secondItem="Z0q-fR-eV2" secondAttribute="leadingMargin" constant="39" id="ncJ-kW-M3E"/>
-                            <constraint firstItem="3uy-8H-Amv" firstAttribute="top" secondItem="Z0q-fR-eV2" secondAttribute="top" constant="175" id="wm3-hN-W3Q"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="k7e-jZ-Cp3"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LyX-ir-oGM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1613.5999999999999" y="-396.25187406296857"/>
-        </scene>
         <!--Item-->
         <scene sceneID="G1B-3a-pHs">
             <objects>
                 <viewController id="lPX-3B-zMb" customClass="ViewControllerAnalisis" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="C16-jT-sgf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SQh-3k-abv">
@@ -482,63 +430,6 @@
             </objects>
             <point key="canvasLocation" x="-847.20000000000005" y="-400.74962518740631"/>
         </scene>
-        <!--Start View-->
-        <scene sceneID="dMF-1V-nnA">
-            <objects>
-                <viewController id="idZ-EX-KuH" customClass="StartView" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xIK-ve-rFX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GET MY GRADE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4Q-yR-ncY">
-                                <rect key="frame" x="40" y="222" width="295" height="47"/>
-                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="36"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTK-c5-gEn">
-                                <rect key="frame" x="107" y="359" width="161" height="38"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="20"/>
-                                <state key="normal" title="Touch to start">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="SoV-h2-pQW" kind="presentation" id="wiS-4N-Kne"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2c7-TY-xPZ">
-                                <rect key="frame" x="316" y="611" width="25" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="info.circle.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
-                                <connections>
-                                    <segue destination="loW-PC-sje" kind="presentation" id="5YE-2t-Jye"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.5" green="0.12097989125753505" blue="0.064635229192656463" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="Pkl-9b-zqG" firstAttribute="bottom" secondItem="OTK-c5-gEn" secondAttribute="bottom" constant="270" id="AKU-Bm-Btl"/>
-                            <constraint firstItem="e4Q-yR-ncY" firstAttribute="top" secondItem="Pkl-9b-zqG" secondAttribute="top" constant="222" id="MYc-CI-Lb8"/>
-                            <constraint firstItem="e4Q-yR-ncY" firstAttribute="centerX" secondItem="OTK-c5-gEn" secondAttribute="centerX" id="NJ1-AF-jK2"/>
-                            <constraint firstItem="OTK-c5-gEn" firstAttribute="top" secondItem="e4Q-yR-ncY" secondAttribute="bottom" constant="90" id="Ndc-uf-09Z"/>
-                            <constraint firstItem="OTK-c5-gEn" firstAttribute="top" secondItem="e4Q-yR-ncY" secondAttribute="bottom" constant="90" id="aEk-zw-SHJ"/>
-                            <constraint firstItem="e4Q-yR-ncY" firstAttribute="centerX" secondItem="xIK-ve-rFX" secondAttribute="centerX" id="alb-Qs-F3Z"/>
-                            <constraint firstItem="2c7-TY-xPZ" firstAttribute="leading" secondItem="Pkl-9b-zqG" secondAttribute="leading" constant="316" id="unZ-Tz-JoV"/>
-                            <constraint firstItem="Pkl-9b-zqG" firstAttribute="bottom" secondItem="2c7-TY-xPZ" secondAttribute="bottom" constant="23" id="z6w-Gx-b2F"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Pkl-9b-zqG"/>
-                    </view>
-                    <connections>
-                        <outlet property="btnStart" destination="OTK-c5-gEn" id="car-2t-34u"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NkK-yk-VEv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1599.2" y="375.56221889055473"/>
-        </scene>
         <!--View Controller Resultados Analisis-->
         <scene sceneID="L0m-Ln-Loe">
             <objects>
@@ -597,7 +488,7 @@
             <objects>
                 <viewController id="DKb-u2-0ex" customClass="ViewControllerAgregaMateria" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WLW-KV-tix">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JFU-VG-R37">
@@ -670,7 +561,7 @@
             <objects>
                 <viewController id="BXb-AX-f37" customClass="ViewControllerAgregaActividad" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PbP-QE-8fR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYp-8H-MMT">
@@ -744,7 +635,7 @@
             <objects>
                 <viewController id="SgR-pn-rJe" customClass="ViewControllerAgregaCategoria" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h67-Oo-BrG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxA-su-9tt">
@@ -838,7 +729,7 @@
             <objects>
                 <viewController id="3YW-tj-X7N" customClass="ViewControllerAgregaAct2" customModule="GetMyGrade" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CWL-Zo-hkh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add a new assignment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkf-HT-mnP">
@@ -916,11 +807,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="credits" width="1000" height="1000"/>
-        <image name="info.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
-        <image name="pencil" catalog="system" width="64" height="56"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
-        <image name="trash" catalog="system" width="60" height="64"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
     </resources>
 </document>
