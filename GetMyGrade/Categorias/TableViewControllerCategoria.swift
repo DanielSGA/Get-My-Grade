@@ -162,10 +162,15 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
             cont = 0
            	 while (listaActividades.count > j) {
                 
-                if (listaCategorias[i].id == listaActividades[j].idCategoria){
-                    suma += listaActividades[j].calificacion
-                    cont += 1
-                }
+                    if (listaCategorias[i].id == listaActividades[j].idCategoria && listaCategorias[i].diffPond == false){
+                        suma += listaActividades[j].calificacion
+                        cont += 1
+                   }
+                    else if (listaCategorias[i].id == listaActividades[j].idCategoria && listaCategorias[i].diffPond == true)
+                    {
+                        suma += (listaActividades[j].calificacion * listaActividades[j].ponderacion / 100)
+                        cont += 1
+                    }
                 
                 j += 1
             }
