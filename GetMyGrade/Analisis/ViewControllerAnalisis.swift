@@ -72,6 +72,7 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
               }
         encontrarMateria()
         califBar()
+        print(puntosExtra())
         
     }
  // MARK: -Encontrar la materia que se esta analizando
@@ -90,6 +91,26 @@ func encontrarMateria()
 func puntosExtra() -> Int
 {
   var puntos = 0
+  var i = 0
+    while (listaCategorias.count > i)
+    {
+    var j = 0
+    var acum = 0
+        if(matAnalisis.id == listaCategorias[i].idMateria && listaCategorias[i].diffPond == true)
+        {
+            while(listaActividades.count > j)
+            {
+                if(listaCategorias[i].id == listaActividades[j].idCategoria)
+                {
+                    acum += listaActividades[j].ponderacion
+                    
+                }
+                j += 1
+            }
+            puntos += (acum/100) * listaCategorias[i].ponderacion
+            i += 1
+        }
+    }
   return puntos
 }
  // MARK: -Progress Bar

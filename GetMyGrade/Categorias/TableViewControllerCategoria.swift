@@ -156,6 +156,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
         var j = 0
         var suma = 0
         var cont = 0
+        var verificaion = true
         while (listaCategorias.count > i){
             j = 0
             suma = 0
@@ -169,20 +170,22 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
                     else if (listaCategorias[i].id == listaActividades[j].idCategoria && listaCategorias[i].diffPond == true)
                     {
                         suma += (listaActividades[j].calificacion * listaActividades[j].ponderacion / 100)
-                        cont += 1
+                        verificaion = false
                     }
                 
                 j += 1
             }
             
-            if cont != 0 {
+            if cont != 0 && verificaion == true{
                 suma = suma / cont
             }
             listaCategorias[i].calificacion = suma
+            print(listaCategorias[i].calificacion)
             
             i += 1
         }
     }
+   
     
     // MARK: - Table view data source
 
