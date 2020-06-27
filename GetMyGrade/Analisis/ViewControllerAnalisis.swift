@@ -11,6 +11,8 @@ import UIKit
 class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControllerTransitioningDelegate {
      // MARK: - Variables y Outlets
     var listaMaterias = [Materia]()
+    var listaCategorias = [Categoria]()
+    var listaActividades = [Actividad]()
     var matAnalisis : Materia!
     var calif: CGFloat = 0
     var idMat : Int!
@@ -30,6 +32,16 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
         let pathArchivo = url.appendingPathComponent("Materias.plist")
         return pathArchivo
     }
+    func dataFileUrl2() -> URL {
+           let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+           let pathArchivo = url.appendingPathComponent("Categorias.plist")
+           return pathArchivo
+       }
+    func dataFileUrl3() -> URL {
+           let url = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+           let pathArchivo = url.appendingPathComponent("Actividades.plist")
+           return pathArchivo
+       }
     
      // MARK: -viewDidLoad
     override func viewDidLoad() {
@@ -44,10 +56,25 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
         catch {
             print("Error reading or decoding file")
         }
+        do {
+                  let data = try Data.init(contentsOf: dataFileUrl())
+                  listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
+              }
+              catch {
+                  print("Error reading or decoding file")
+              }
+        do {
+                  let data = try Data.init(contentsOf: dataFileUrl())
+                  listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
+              }
+              catch {
+                  print("Error reading or decoding file")
+              }
         encontrarMateria()
         califBar()
         
     }
+ // MARK: -Encontrar la materia que se esta analizando
 func encontrarMateria()
 {
     var i = 0
@@ -59,6 +86,11 @@ func encontrarMateria()
                             
          i += 1
          }
+}
+func puntosExtra() -> Int
+{
+  var puntos = 0
+  return puntos
 }
  // MARK: -Progress Bar
  func califBar()
