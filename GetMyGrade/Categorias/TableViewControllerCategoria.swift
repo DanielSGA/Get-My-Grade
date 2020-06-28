@@ -180,7 +180,7 @@ class TableViewControllerCategoria: UITableViewController, protocoloAgregaCatego
                 suma = suma / cont
             }
             listaCategorias[i].calificacion = suma
-            print(listaCategorias[i].calificacion)
+           
             
             i += 1
         }

@@ -57,14 +57,14 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
             print("Error reading or decoding file")
         }
         do {
-                  let data = try Data.init(contentsOf: dataFileUrl())
+                  let data = try Data.init(contentsOf: dataFileUrl2())
                   listaCategorias = try PropertyListDecoder().decode([Categoria].self, from: data)
               }
               catch {
                   print("Error reading or decoding file")
               }
         do {
-                  let data = try Data.init(contentsOf: dataFileUrl())
+                  let data = try Data.init(contentsOf: dataFileUrl3())
                   listaActividades = try PropertyListDecoder().decode([Actividad].self, from: data)
               }
               catch {
@@ -72,7 +72,7 @@ class ViewControllerAnalisis: UIViewController,UITextFieldDelegate,UIViewControl
               }
         encontrarMateria()
         califBar()
-        print(puntosExtra())
+       
         
     }
  // MARK: -Encontrar la materia que se esta analizando
@@ -92,25 +92,29 @@ func puntosExtra() -> Int
 {
   var puntos = 0
   var i = 0
+ var acum = 0
+   
     while (listaCategorias.count > i)
     {
     var j = 0
-    var acum = 0
+    
         if(matAnalisis.id == listaCategorias[i].idMateria && listaCategorias[i].diffPond == true)
         {
+            
             while(listaActividades.count > j)
             {
                 if(listaCategorias[i].id == listaActividades[j].idCategoria)
                 {
                     acum += listaActividades[j].ponderacion
-                    
+                   
                 }
                 j += 1
             }
-            puntos += (acum/100) * listaCategorias[i].ponderacion
-            i += 1
+            puntos += (acum * listaCategorias[i].ponderacion)/100
         }
+        i += 1
     }
+   
   return puntos
 }
  // MARK: -Progress Bar
@@ -157,7 +161,7 @@ func puntosExtra() -> Int
             else {
                 
                 let puntosParaMeta = meta! - matAnalisis.calificacion
-                let puntosRestantes = matAnalisis.total - matAnalisis.ponderacion
+                let puntosRestantes = matAnalisis.total - matAnalisis.ponderacion + puntosExtra()
                 
                 if puntosRestantes < puntosParaMeta {
                     resultado = "We are sorry, with the remaning course points its imposible to achieve your goal"
