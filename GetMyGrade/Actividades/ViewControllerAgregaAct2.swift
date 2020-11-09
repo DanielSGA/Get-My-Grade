@@ -2,8 +2,8 @@
 //  ViewControllerAgregaAct2.swift
 //  GetMyGrade
 //
-//  Created by Jorge Ramos on 11/01/20.
-//  Copyright © 2020 ArturoMendez. All rights reserved.
+//  Created by Jorge Ramos on 04/01/20.
+//  Copyright © 2020  Jorge Ramos All rights reserved.
 //
 
 import UIKit

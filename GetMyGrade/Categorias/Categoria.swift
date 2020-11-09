@@ -2,8 +2,8 @@
 //  Categoria.swift
 //  GetMyGrade
 //
-//  Created by Jorge Ramos on 10/12/19.
-//  Copyright © 2019 ArturoMendez. All rights reserved.
+//  Created by Jorge Ramos on 04/01/20.
+//  Copyright © 2020  Jorge Ramos All rights reserved.
 //
 
 import UIKit
